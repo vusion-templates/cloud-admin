@@ -14,6 +14,7 @@ const port = 8810;
 const devServer = {
     host,
     port,
+    open: true,
     public: `http://${host}:${port}/index.html`,
     disableHostCheck: true,
     publicPath: publicPathPrefix,
