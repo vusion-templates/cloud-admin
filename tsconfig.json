@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "noEmit": true,
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "allowJs": true,
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "exclude": ["node_modules", "public", "dll"]
+}

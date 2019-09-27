@@ -7,8 +7,8 @@ const md5 = function (str, len = 16) {
     const md5 = crypto.createHash('md5');
     return md5.update(str).digest('hex').substr(0, len);
 };
-const basePath = 'public';
-const publicPathPrefix = '/';
+const ISDEV = process.env.NODE_ENV === 'development';
+const publicPathPrefix = !ISDEV ? '/cloud-admin/' : '/';
 const host = 'localhost';
 const port = 8810;
 const devServer = {
@@ -16,7 +16,7 @@ const devServer = {
     port,
     public: `http://${host}:${port}/index.html`,
     disableHostCheck: true,
-    publicPath: publicPathPrefix + basePath,
+    publicPath: publicPathPrefix,
     contentBase: __dirname,
     clientLogLevel: 'info',
 };
@@ -33,11 +33,11 @@ const fixDll = function () {
 };
 const proxy = devServer.proxy;
 delete devServer.proxy;
-const ISDEV = process.env.NODE_ENV === 'development';
+
 const manifest = require(ISDEV ? './dll/vendor.manifest.json' : './dll/vendor.manifest.online.json');
 const vueConfig = {
-    outputDir: path.resolve(__dirname, basePath),
-    publicPath: publicPathPrefix + basePath,
+    outputDir: path.resolve(__dirname, 'public'),
+    publicPath: publicPathPrefix,
     assetsDir: undefined,
     productionSourceMap: false,
     transpileDependencies: [
@@ -53,7 +53,7 @@ const vueConfig = {
             favicon: path.join(__dirname, './src/templates/favicon.ico'),
             title: 'Dashboard',
             inject: true,
-            chunks: ['index'],
+            chunks: ['chunk-vendors', 'chunk-common', 'index'],
             chunksSortMode: 'manual',
         },
     },
@@ -120,7 +120,6 @@ const vueConfig = {
         }
         entryKeys.forEach((entryKey) => {
             config.plugin(`${entryKey}-dll`).after(`html-${entryKey}`).use(AddAssetHtmlPlugin, [{
-                hash: !ISDEV,
                 filepath: path.resolve(__dirname, dllPath),
             }]).end();
         });
