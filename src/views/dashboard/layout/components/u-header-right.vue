@@ -1,0 +1,90 @@
+<template>
+    <div>
+        <div :class="$style.headerRightItem">
+            <u-badge corner dot :value="messageNum">
+                <u-link
+                    :class="noticeActive ? $style.active : ''"
+                    to="/message"
+                    title="个人中心">
+                    <i-icon name="notice" :class="$style.icon"></i-icon>
+                </u-link>
+            </u-badge>
+        </div>
+        <u-navbar-dropdown>
+            <div slot="title">
+                <u-avatar :src="src" :size="36" :class="$style.avatar"></u-avatar>
+                <span :class="$style.username">{{ userInfo.username }}</span>
+            </div>
+            <u-navbar-menu>
+                <u-navbar-menu-item to="/account/center">个人中心</u-navbar-menu-item>
+                <u-navbar-menu-item @click="logout">安全退出</u-navbar-menu-item>
+            </u-navbar-menu>
+        </u-navbar-dropdown>
+    </div>
+</template>
+<script>
+export default {
+    props: {
+        userInfo: Object,
+    },
+    data() {
+        return {
+            src: require('../assets/avatar.png'),
+            messageNum: 6,
+            noticeActive: false,
+        };
+    },
+
+    watch: {
+        $route: {
+            immediate: true,
+            handler($route) {
+                this.noticeActive = $route.path.startsWith('/notice');
+            },
+        },
+    },
+    methods: {
+        logout() {
+            this.$confirm(`确定退出登录吗？`, '提示').then(() => {
+                location.reload();
+            });
+        },
+    },
+};
+</script>
+<style module>
+.avatar {
+    /* (64px-36px)/2 */
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-right: 10px;
+}
+.username {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: #fff;
+}
+.icon {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+}
+.headerRightItem {
+    display: inline-block;
+    vertical-align: top;
+    width: 64px;
+    text-align: center;
+    line-height: 64px;
+}
+.headerRightItem .icon {
+    font-size: 22px;
+    line-height: 22px;
+    color: #9ba4ad;
+}
+
+.active[class] span{
+    color: #67aaf5;
+}
+
+</style>
