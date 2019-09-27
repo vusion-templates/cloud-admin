@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
     "lint": "npx eslint --quiet",
     "lint:fix": "npm run eslint -- \"./src/**/*.{js,vue}\" --fix",
     "dll": "npx webpack --config webpack.dll.config.js --env.NODE_ENV production && npx webpack --config webpack.dll.config.js --env.NODE_ENV development",
