@@ -9,31 +9,31 @@ const dateFormat = (value, formater = 'yyyy-MM-dd HH:mm:ss') => {
             return now.getFullYear();
         },
         MM(now) {
-            return padStart(this.M(now));
+            return padStart(map.M(now));
         },
         M(now) {
             return now.getMonth() + 1;
         },
         dd(now) {
-            return padStart(this.d(now));
+            return padStart(map.d(now));
         },
         d(now) {
             return now.getDate();
         },
         HH(now) {
-            return padStart(this.H(now));
+            return padStart(map.H(now));
         },
         H(now) {
             return now.getHours();
         },
         mm(now) {
-            return padStart(this.m(now));
+            return padStart(map.m(now));
         },
         m(now) {
             return now.getMinutes();
         },
         ss(now) {
-            return padStart(this.s(now));
+            return padStart(map.s(now));
         },
         s(now) {
             return now.getSeconds();

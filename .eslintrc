@@ -5,29 +5,20 @@
         "browser": true,
         "node": true
     },
-    "globals": {
-        "DEV": true
-    },
+    "globals": {},
     "rules": {
-        "vue/attribute-hyphenation": [0],
-        "new-cap": [0],
-        "no-unused-vars": 2,
-        "vue/name-property-casing": [0],
+        "no-debugger": ["error"],
+        "no-duplicate-imports": ["error"],
+        "camelcase": ["error", {
+            "properties": "never"
+        }],
+        "new-cap": ["error", {
+            "newIsCap": true,
+            "properties": false
+        }],
         "vue/no-unused-components": [2],
         "vue/html-indent": ["error", 4, {
             "alignAttributesVertically": false
-        }],
-        "vue/attributes-order": [0],
-        "vue/html-closing-bracket-newline": [0],
-        "vue/script-indent": ["error", 4, { "switchCase": 1 }],
-        "multiline-comment-style": [0],
-        "vue/component-name-in-template-casing": [0],
-        "vue/no-parsing-error": [2, {
-            "invalid-first-character-of-tag-name": false
-        }],
-        "vue/prop-name-casing": [0],
-        "camelcase": [0],
-        "no-debugger": ["error"],
-        "no-duplicate-imports": ["error"]
+        }]
     }
 }

@@ -7,20 +7,6 @@ const md5 = function (str, len = 16) {
     const md5 = crypto.createHash('md5');
     return md5.update(str).digest('hex').substr(0, len);
 };
-const ISDEV = process.env.NODE_ENV === 'development';
-const publicPathPrefix = !ISDEV ? '/cloud-admin/' : '/';
-const host = 'localhost';
-const port = 8810;
-const devServer = {
-    host,
-    port,
-    open: true,
-    public: `http://${host}:${port}/index.html`,
-    disableHostCheck: true,
-    publicPath: publicPathPrefix,
-    contentBase: __dirname,
-    clientLogLevel: 'info',
-};
 const fixDll = function () {
     const content = fs.readFileSync(path.join(__dirname, './dll/vendor.online.js')).toString();
     const cache = './dll/.cache';
@@ -32,10 +18,14 @@ const fixDll = function () {
     fs.writeFileSync(path.join(__dirname, newPath), content);
     return newPath;
 };
+const isDevelopment = process.env.NODE_ENV === 'development';
+const publicPathPrefix = !isDevelopment ? '/cloud-admin/' : '/';
+
+const devServer = require('./webpack.dev-server')(publicPathPrefix);
 const proxy = devServer.proxy;
 delete devServer.proxy;
+const manifest = require(isDevelopment ? './dll/vendor.manifest.json' : './dll/vendor.manifest.online.json');
 
-const manifest = require(ISDEV ? './dll/vendor.manifest.json' : './dll/vendor.manifest.online.json');
 const vueConfig = {
     outputDir: path.resolve(__dirname, 'public'),
     publicPath: publicPathPrefix,
@@ -59,7 +49,7 @@ const vueConfig = {
         },
     },
     chainWebpack(config) {
-        config.output.filename(ISDEV ? '[name].js' : '[name].[chunkhash:16].js');
+        config.output.filename(isDevelopment ? '[name].js' : '[name].[chunkhash:16].js');
 
         config.module.rule('ftl')
             .test(/\.ftl$/i)
@@ -78,9 +68,11 @@ const vueConfig = {
         config.plugins.delete('preload');
         config.plugins.delete('prefetch');
 
-        config.plugin('dll').use(webpack.DllReferencePlugin, [{ manifest }]);
+        config.plugin('dll').use(webpack.DllReferencePlugin, [{
+            manifest,
+        }]);
 
-        if (!ISDEV) {
+        if (!isDevelopment) {
             config.plugin('namedchunk').use(webpack.NamedChunksPlugin, [
                 (chunk) => {
                     if (chunk.name)
@@ -99,8 +91,9 @@ const vueConfig = {
                         return modules[0].id;
                 },
             ]);
-        } else
+        } else {
             config.plugin('namedmodule').use(webpack.NamedModulesPlugin);
+        }
 
         const entryKeys = Object.keys(config.entryPoints.entries());
         if (config.plugins.has('icon-font-plugin')) {
@@ -116,7 +109,7 @@ const vueConfig = {
             });
         }
         let dllPath = './dll/vendor.js';
-        if (!ISDEV) {
+        if (!isDevelopment) {
             dllPath = fixDll();
         }
         entryKeys.forEach((entryKey) => {

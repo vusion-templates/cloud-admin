@@ -1,17 +1,32 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const basePath = 'pub/vue/';
 module.exports = (env = {}) => {
     const dir = path.resolve(__dirname, './dll');
+    let config = {
+        filename: '[name].js',
+        manifest: '[name].manifest.json',
+    };
+    if (env.NODE_ENV !== 'development') {
+        config = {
+            filename: '[name].online.js',
+            manifest: '[name].manifest.online.json',
+        };
+    }
     return {
         mode: env.NODE_ENV,
         entry: {
-            vendor: ['babel-polyfill', 'lodash', 'vue', 'vue-i18n', 'vue-router'],
+            vendor: [
+                'babel-polyfill',
+                'lodash',
+                'vue',
+                'vue-router',
+                // 'vue-i18n',
+            ],
         },
         output: {
-            filename: env.NODE_ENV === 'development' ? '[name].js' : '[name].online.js',
+            filename: config.filename,
             path: dir,
             publicPath: '/' + basePath,
             library: '[name]',
@@ -23,15 +38,6 @@ module.exports = (env = {}) => {
                 'vue-router$': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm.js'),
             },
         },
-        optimization: {
-            minimizer: [
-                new UglifyJsPlugin({
-                    uglifyOptions: {
-
-                    },
-                }),
-            ],
-        },
         plugins: [
             new webpack.DefinePlugin({
                 'process.env': {
@@ -39,7 +45,7 @@ module.exports = (env = {}) => {
                 },
             }),
             new webpack.DllPlugin({
-                path: path.join(dir, env.NODE_ENV === 'development' ? '[name].manifest.json' : '[name].manifest.online.json'),
+                path: path.join(dir, config.manifest),
                 name: '[name]',
             }),
             new webpack.HashedModuleIdsPlugin(),
