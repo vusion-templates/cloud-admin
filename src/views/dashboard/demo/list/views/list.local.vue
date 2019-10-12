@@ -33,7 +33,7 @@
         <div class="pager">
             <u-linear-layout direction="vertical">
                 <u-combo-pagination show-total show-sizer show-jumper
-                    :limitList="limitList" :totalItems="total" :limit="form.limit"
+                    :limit-list="limitList" :total-items="total" :limit="form.limit"
                     :total="totalPage" :page="form.page" @change="changePage($event)" @change-page-size="changeLimit">
                 </u-combo-pagination>
             </u-linear-layout>

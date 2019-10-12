@@ -47,7 +47,7 @@
         <div class="pager">
             <u-linear-layout direction="vertical">
                 <u-combo-pagination show-total show-sizer show-jumper
-                    :limitList="limitList" :totalItems="total" :limit="form.limit"
+                    :limit-list="limitList" :total-items="total" :limit="form.limit"
                     :total="totalPage" :page="form.page" @change="changePage($event)" @change-page-size="changeLimit">
                 </u-combo-pagination>
             </u-linear-layout>
@@ -95,9 +95,11 @@ export default {
         loadList() {
             const page = this.getFormForPage();
             return messageService.list({
-                query: {
-                    page: page.pageNum,
-                    search: this.form.search,
+                url: {
+                    query: {
+                        page: page.pageNum,
+                        search: this.form.search,
+                    },
                 },
             }).then((res) => {
                 let result = [];

@@ -23,8 +23,10 @@ export default {
     methods: {
         loadDetail() {
             messageService.detail({
-                query: {
-                    channelname: this.$route.query.id,
+                url: {
+                    query: {
+                        channelname: this.$route.query.id,
+                    },
                 },
             }).then((res) => {
                 this.detail = res.data.result;

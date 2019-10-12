@@ -1,4 +1,4 @@
-import Service from '@/global/lib/service-pre';
+import Service from 'request-pre';
 import axios from 'axios';
 import { stringify } from 'qs';
 const formatContentType = function (contentType, data) {

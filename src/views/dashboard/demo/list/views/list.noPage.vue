@@ -80,8 +80,10 @@ export default {
     methods: {
         loadList() {
             return messageService.list({
-                query: {
-                    search: this.form.search,
+                url: {
+                    query: {
+                        search: this.form.search,
+                    },
                 },
             }).then((res) => {
                 let result = [];
