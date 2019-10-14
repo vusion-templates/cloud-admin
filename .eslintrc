@@ -1,24 +1,50 @@
 {
-    "root": true,
-    "extends": "vusion/all",
-    "env": {
-        "browser": true,
-        "node": true
-    },
-    "globals": {},
-    "rules": {
-        "no-debugger": ["error"],
-        "no-duplicate-imports": ["error"],
-        "camelcase": ["error", {
-            "properties": "never"
-        }],
-        "new-cap": ["error", {
-            "newIsCap": true,
-            "properties": false
-        }],
-        "vue/no-unused-components": [2],
-        "vue/html-indent": ["error", 4, {
-            "alignAttributesVertically": false
-        }]
+  "root": true,
+  "extends": "vusion/all",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {},
+  "rules": {
+    "no-debugger": [
+      "error"
+    ],
+    "no-duplicate-imports": [
+      "error"
+    ],
+    "camelcase": [
+      "error",
+      {
+        "properties": "never"
+      }
+    ],
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": true,
+        "properties": false
+      }
+    ],
+    "vue/no-unused-components": [
+      2
+    ],
+    "vue/html-indent": [
+      "error",
+      4,
+      {
+        "alignAttributesVertically": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/*.{j,t}s?(x)"
+      ],
+      "env": {
+        "jest": true
+      }
     }
+  ]
 }

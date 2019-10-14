@@ -1,11 +1,11 @@
-const dateFormat = (value, formater = 'yyyy-MM-dd HH:mm:ss') => {
+const dateFormat = (value, formater = 'YYYY-MM-DD HH:mm:ss') => {
     if (!value)
         return '-';
     const padStart = function (str) {
         return ((str || '') + '').padStart(2, 0);
     };
     const map = {
-        yyyy(now) {
+        YYYY(now) {
             return now.getFullYear();
         },
         MM(now) {
@@ -14,10 +14,10 @@ const dateFormat = (value, formater = 'yyyy-MM-dd HH:mm:ss') => {
         M(now) {
             return now.getMonth() + 1;
         },
-        dd(now) {
-            return padStart(map.d(now));
+        DD(now) {
+            return padStart(map.D(now));
         },
-        d(now) {
+        D(now) {
             return now.getDate();
         },
         HH(now) {
@@ -58,7 +58,7 @@ const timeFormat = (value, type = 'day') => { // type取值day、minute, 默认d
     value = isNaN(+value) ? Date.parse(value) : +value;
     if (isNaN(value))
         return '-';
-    const today = Date.parse(dateFormat(new Date(), 'yyyy-MM-dd') + 'T00:00:00.000+08:00');
+    const today = Date.parse(dateFormat(new Date(), 'YYYY-MM-DD') + 'T00:00:00.000+08:00');
     const tomorrow = today + ONE_DAY;
     const yesterday = today - ONE_DAY;
     const twoDaysBefore = yesterday - ONE_DAY;
@@ -70,7 +70,7 @@ const timeFormat = (value, type = 'day') => { // type取值day、minute, 默认d
         if (time < tomorrow && time >= today)
             return minute = '今天 ' + hm;
         else
-            return dateFormat(value, 'yyyy-MM-dd HH:mm');
+            return dateFormat(value, 'YYYY-MM-DD HH:mm');
     }
     if (time < tomorrow && time >= today)
         day = minute = '今天 ' + hm;
@@ -81,8 +81,8 @@ const timeFormat = (value, type = 'day') => { // type取值day、minute, 默认d
         day = '前天';
         minute = '前天' + ' ' + hm;
     } else {
-        day = dateFormat(value, 'yyyy-MM-dd');
-        minute = dateFormat(value, 'yyyy-MM-dd HH:mm');
+        day = dateFormat(value, 'YYYY-MM-DD');
+        minute = dateFormat(value, 'YYYY-MM-DD HH:mm');
     }
 
     switch (type) {
