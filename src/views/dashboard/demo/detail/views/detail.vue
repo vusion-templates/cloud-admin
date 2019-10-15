@@ -28,7 +28,7 @@
 
 <script>
 import Vue from 'vue';
-import { MPublisher } from 'cloud-ui.vusion';
+import { MPublisher } from 'cloud-ui.js';
 export default {
     mixins: [MPublisher],
     publish: {

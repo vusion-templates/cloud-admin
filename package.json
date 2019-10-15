@@ -4,11 +4,13 @@
   "description": "base on vue cloud-ui.vusion",
   "main": "src/views/dashboard/index.js",
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "npm run update:ui && vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",
     "lint": "npx eslint --quiet",
     "lint:fix": "npm run lint -- \"./src/**/*.{js,vue}\" --fix",
+    "update:ui": "cd node_modules/cloud-ui.vusion && vue-cli-service library-build --cache --vusion-mode raw -o ../../ui --global-css ../../src/global/styles/theme.css",
+    "update:ui:force": "shx rm -rf ui && npm run update:ui",
     "dll": "npx webpack --config webpack.dll.config.js --env.NODE_ENV production && npx webpack --config webpack.dll.config.js --env.NODE_ENV development",
     "test:unit": "vue-cli-service test:unit"
   },

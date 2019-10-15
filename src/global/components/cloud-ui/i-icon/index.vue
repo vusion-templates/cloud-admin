@@ -1,5 +1,5 @@
 <script>
-import { IIcon } from 'cloud-ui.vusion';
+import { IIcon } from 'cloud-ui.js';
 export default {
     name: 'i-icon',
     extends: IIcon,

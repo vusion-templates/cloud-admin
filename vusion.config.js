@@ -13,6 +13,8 @@ module.exports = {
         'vue-i18n$': path.resolve(__dirname, 'node_modules/vue-i18n/dist/vue-i18n.esm.js'),
         'vue-router$': path.resolve(__dirname, 'node_modules/vue-router/dist/vue-router.esm.js'),
         '@': path.resolve(__dirname, 'src'),
+        'cloud-ui.js$': path.resolve(__dirname, 'ui/index.js'),
+        'cloud-ui.css$': path.resolve(__dirname, 'ui/index.css'),
     },
     postcss: [require('postcss-nested')],
 };
