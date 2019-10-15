@@ -4,6 +4,6 @@
 
 ## 文档
 
-[文档](https://vusion.github.io/cloud-admin-site/)
+[文档](https://vusion-templates.github.io/cloud-admin-site/)
 
-[demo](https://vusion.github.io/cloud-admin/)
+[demo](https://vusion-templates.github.io/cloud-admin/)
