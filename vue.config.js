@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const crypto = require('crypto');
 const fs = require('fs');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const md5 = function (str, len = 16) {
     const md5 = crypto.createHash('md5');
     return md5.update(str).digest('hex').substr(0, len);
@@ -25,9 +26,9 @@ const devServer = require('./webpack.dev-server')(publicPathPrefix);
 const proxy = devServer.proxy;
 delete devServer.proxy;
 const manifest = require(isDevelopment ? './dll/vendor.manifest.json' : './dll/vendor.manifest.online.json');
-
+const outputDir = path.resolve(__dirname, 'public');
 const vueConfig = {
-    outputDir: path.resolve(__dirname, 'public'),
+    outputDir,
     publicPath: publicPathPrefix,
     assetsDir: undefined,
     productionSourceMap: false,
@@ -71,6 +72,13 @@ const vueConfig = {
         config.plugin('dll').use(webpack.DllReferencePlugin, [{
             manifest,
         }]);
+        config.plugin('copy').use(CopyPlugin, [
+            [{
+                from: 'chunk-*.js',
+                to: outputDir,
+                context: path.join(__dirname, 'ui'),
+            }],
+        ]);
 
         if (!isDevelopment) {
             config.plugin('namedchunk').use(webpack.NamedChunksPlugin, [

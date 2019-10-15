@@ -14,7 +14,6 @@ export default {
     children: [
         {
             path: 'detail',
-            name: 'demo.detail',
             component: Detail,
             meta: {
                 title: '详情页',
@@ -24,6 +23,7 @@ export default {
             },
             children: [
                 {
+                    name: 'demo.detail',
                     path: '',
                     redirect: '/demo/detail/info',
                 },
