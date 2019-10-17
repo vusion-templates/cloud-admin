@@ -18,17 +18,21 @@ export default {
                 },
                 headerNavConfig: [
                     {
-                        label: 'cloud-ui 组件库',
+                        label: 'Cloud UI',
                         href: 'https://vusion.github.io/cloud-ui/components/quickstart',
                     },
                     {
-                        label: 'proto-ui 组件库',
+                        label: 'Proto UI',
                         href: 'https://vusion.github.io/proto-ui/components/quickstart',
                     },
                     '|',
                     {
-                        label: 'cloud-admin',
-                        href: 'https://github.com/vusion/cloud-admin',
+                        label: '文档',
+                        href: 'https://vusion-templates.github.io/cloud-admin-site',
+                    },
+                    {
+                        label: 'GitHub',
+                        href: 'https://github.com/vusion-templates/cloud-admin',
                     },
                 ],
                 sideNavConfig: sortModuleConfig.map((item) => item.module ? item.sideNav : item).filter((item) => item.exist !== false),

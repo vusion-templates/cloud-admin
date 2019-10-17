@@ -55,13 +55,13 @@ export default {
 <style module>
 .avatar {
     /* (64px-36px)/2 */
-    margin-top: 14px;
-    margin-bottom: 14px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     margin-right: 10px;
 }
 .username {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     margin-right: 10px;
     color: #fff;
 }

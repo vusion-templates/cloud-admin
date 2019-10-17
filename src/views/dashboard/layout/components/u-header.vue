@@ -32,6 +32,7 @@ export default {
     right: 0;
     top: 0;
     height: $navbar-height;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
 .nav .divider {
     margin-left: 0;

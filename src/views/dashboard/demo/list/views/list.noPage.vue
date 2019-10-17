@@ -13,7 +13,7 @@
                 <u-search v-model="form.search" placeholder="搜索"></u-search>
             </u-linear-layout>
         </div>
-        <u-table-view :data="list" :loading="loading" value-field="name" :values="selected">
+        <u-table-view :class="$style.tableView" :data="list" :loading="loading" value-field="name" :values="selected">
             <u-table-view-column type="checkbox" width="8%"></u-table-view-column>
             <u-table-view-column title="消息标题">
                 <template slot="cell" slot-scope="{ item }">
@@ -122,5 +122,7 @@ export default {
 };
 </script>
 <style module>
-
+.tableView img {
+    vertical-align: middle;
+}
 </style>

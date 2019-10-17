@@ -1,12 +1,12 @@
 <template>
-    <div :class="[$style.root]">
-        <u-header :navConfig="headerNavConfig">
+    <div :class="$style.root">
+        <u-header :nav-config="headerNavConfig">
             <div :class="$style.logo" slot="logo">
                 <u-logo href="#/" :class="$style.logoFix"></u-logo>
             </div>
-            <u-header-right :userInfo="userInfo" slot="headerRight"></u-header-right>
+            <u-header-right :user-info="userInfo" slot="headerRight"></u-header-right>
         </u-header>
-        <u-aside :navConfig="sideNavConfig"></u-aside>
+        <u-aside :nav-config="sideNavConfig"></u-aside>
         <main :class="$style.main">
             <u-crumb :class="$style.crumb"></u-crumb>
             <div :class="$style.mainInner">
@@ -72,6 +72,7 @@ export default {
 .mainInner {
     background-color: #fff;
     padding-left: 40px;
+    padding-right: 40px;
     padding-top: 40px;
 }
 .crumb + .mainInner {
