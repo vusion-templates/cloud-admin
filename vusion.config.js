@@ -16,5 +16,4 @@ module.exports = {
         'cloud-ui.js$': path.resolve(__dirname, 'ui/index.js'),
         'cloud-ui.css$': path.resolve(__dirname, 'ui/index.css'),
     },
-    postcss: [require('postcss-nested')],
 };

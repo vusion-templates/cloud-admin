@@ -1,5 +1,6 @@
 const host = 'localhost';
 const port = 8810;
+
 module.exports = function (publicPathPrefix) {
     return {
         host,
