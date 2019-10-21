@@ -72,6 +72,10 @@ const vueConfig = {
         config.plugin('dll').use(webpack.DllReferencePlugin, [{
             manifest,
         }]);
+        config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'), [{
+            languages: ['javascript', 'json', 'markdown', 'typescript'],
+        }]);
+
         config.plugin('copy').use(CopyPlugin, [
             [{
                 from: 'chunk-*.js',

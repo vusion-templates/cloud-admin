@@ -69,7 +69,7 @@ export default {
                             },
                             {
                                 label: '富文本编辑器',
-                                to: '/editor/editor',
+                                to: '/editor/rich-editor',
                             },
                         ],
                     },
