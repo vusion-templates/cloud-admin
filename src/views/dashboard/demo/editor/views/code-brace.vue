@@ -9,11 +9,11 @@
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>编辑</u-block>
-                        <x-ace-editor :class="$style.editor" theme-mode="follow" v-bind="ace" @init="getEditor($event)" @change="getContent($event)"></x-ace-editor>
+                        <x-ace-editor :class="$style.editor" v-bind="ace" @init="getEditor($event)" @change="getContent($event)"></x-ace-editor>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>只读</u-block>
-                        <x-ace-editor :class="$style.editor" theme-mode="follow" :options="options" :value="content"></x-ace-editor>
+                        <x-ace-editor :class="$style.editor" theme :options="options" :value="content"></x-ace-editor>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
                 <u-grid-layout-row :repeat="2">
