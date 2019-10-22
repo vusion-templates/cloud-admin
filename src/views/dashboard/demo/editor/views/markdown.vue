@@ -1,31 +1,27 @@
 <template>
     <div>
         <u-page-sum>
-            <u-link href="https://github.com/microsoft/monaco-editor">monaco 代码编辑器</u-link>
+            <u-link href="https://github.com/nhn/tui.editor">tui.editor 编辑器</u-link>
             以及
-            <u-link href="https://github.com/markdown-it/markdown-it">markdown 预览</u-link>
+            <u-link href="https://github.com/nhn/toast-ui.vue-editor">toast-ui.vue-editor</u-link>
         </u-page-sum>
         <u-loading v-show="!libLoad.status"></u-loading>
         <div v-show="libLoad.status">
             <u-grid-layout gap="normal">
-                <u-grid-layout-row :repeat="2">
+                <u-grid-layout-row :repeat="1">
                     <u-grid-layout-column :span="1">
                         <u-block>编辑</u-block>
-                        <monaco-editor ref="editor" @change="change($event)" :class="$style.editor" v-model="code" language="markdown"></monaco-editor>
-                    </u-grid-layout-column>
-                    <u-grid-layout-column :span="1">
-                        <u-block>只读</u-block>
-                        <monaco-editor ref="readonlyEditor" :class="$style.editor" v-model="code" language="markdown" @editorDidMount="readonlyEditor"></monaco-editor>
+                        <u-markdown-editor ref="editor" :class="$style.editor" v-model="content" @load="onEditorLoad"></u-markdown-editor>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>预览</u-block>
-                        <div v-if="preview" v-html="preview" :class="$style.editor"></div>
+                        <u-markdown-viewer ref="previewEditor" :class="$style.editor" v-model="content"></u-markdown-viewer>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
-                        <u-block>文本</u-block>
-                        <pre>{{ content }}</pre>
+                        <u-block>html</u-block>
+                        <pre>{{ html }}</pre>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
             </u-grid-layout>
@@ -33,67 +29,77 @@
     </div>
 </template>
 <script>
-let markdownIt;
 const libLoad = {
     status: false,
 };
 export default {
     components: {
-        MonacoEditor: () => Promise.all([
-            import(/* webpackChunkName: "monaco" */ 'vue-monaco'),
-            import(/* webpackChunkName: "markdown" */ 'markdown-it'),
-        ]).then(([component, markdownItWrap]) => {
-            markdownIt = markdownItWrap.default;
+        UMarkdownEditor: () => import(/* webpackChunkName: "markdown" */ '../components/u-markdown').then((components) => {
             libLoad.status = true;
-            return component;
+            return components.Editor;
+        }),
+        UMarkdownViewer: () => import(/* webpackChunkName: "markdown" */ '../components/u-markdown').then((components) => {
+            libLoad.status = true;
+            return components.Viewer;
         }),
     },
     data() {
-        const code = `# head1
-
-## head2
-
-+ li1
-+ li2
-
-\`\`\`javascript
-const a = 1;
-\`\`\`
-`;
+        const content = [
+            '![image](https://uicdn.toast.com/toastui/img/tui-editor-bi.png)',
+            '# Heading 1',
+            '## Heading 2',
+            '### Heading 3',
+            '#### Heading 4',
+            '##### Heading 5',
+            '###### Heading 6',
+            '    code block',
+            '```js',
+            'console.log("fenced code block");',
+            '```',
+            '<pre>**HTML block**</pre>',
+            '* list',
+            '    * list indented',
+            '1. ordered',
+            '2. list',
+            '    1. ordered list',
+            '    2. indented',
+            '',
+            '- [ ] task',
+            '- [x] list completed',
+            '',
+            '[link](https://nhn.github.io/tui.editor/)',
+            '> block quote',
+            '---',
+            'horizontal line',
+            '***',
+            '`code`, *italic*, **bold**, ~~strikethrough~~, <span style="color:#e11d21">Red color</span>',
+            '|table|head|',
+            '|---|---|',
+            '|table|body|',
+        ].join('\n');
         return {
-            code,
-            content: code,
+            content,
             libLoad,
-            preview: '',
+            html: '',
         };
     },
     watch: {
-        'libLoad.status': {
-            handler(status) {
-                if (status) {
-                    if (!this._md) {
-                        this._md = markdownIt();
-                    }
-                    this.updateContent(this.content);
-                }
-            },
-            immediate: true,
-        },
-        content(content) {
-            if (this._md) {
-                this.updateContent(content);
-            }
+        content() {
+            this.html = this.getHtml();
         },
     },
     methods: {
         change(event) {
             this.content = event;
         },
-        updateContent(content) {
-            this.preview = this._md.render(content);
+        getHtml() {
+            if (this.$refs.editor)
+                return this.$refs.editor.invoke('getHtml');
         },
-        readonlyEditor(editor) {
-            editor.updateOptions({ readOnly: true });
+        onEditorLoad() {
+            this.$nextTick(() => {
+                this.html = this.getHtml();
+            });
         },
     },
 };
