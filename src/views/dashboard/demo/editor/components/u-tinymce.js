@@ -25,11 +25,6 @@ import 'tinymce/plugins/table';
 import 'tinymce/plugins/paste';
 import 'tinymce/plugins/help';
 import 'tinymce/plugins/wordcount';
-require.context(
-    'file-loader?name=[path][name].[ext]&context=node_modules/tinymce!tinymce/skins',
-    true,
-    /.*/
-);
 
 import Editor from '@tinymce/tinymce-vue';
 export default Editor;

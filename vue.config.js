@@ -83,6 +83,13 @@ const vueConfig = {
                 context: path.join(__dirname, 'ui'),
             }],
         ]);
+        config.plugin('copy-tinymce').use(CopyPlugin, [
+            [{
+                from: 'skins/**',
+                to: outputDir,
+                context: path.join(__dirname, 'node_modules/tinymce'),
+            }],
+        ]);
 
         if (!isDevelopment) {
             config.plugin('namedchunk').use(webpack.NamedChunksPlugin, [
