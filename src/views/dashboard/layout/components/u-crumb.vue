@@ -25,6 +25,9 @@ export default {
                         if (!crumb.to && !crumb.readonly) {
                             crumb.to = route.path;
                         }
+                        if (crumb.readonly) {
+                            crumb.type = 'text';
+                        }
                         crumb.current = crumb.to === routes.path;
                         result.push(crumb);
                     }
