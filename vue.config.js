@@ -36,6 +36,8 @@ const vueConfig = {
         /atom-validator/,
         /vusion-utils/,
         /lodash/,
+        'vue-echarts',
+        'resize-detector',
     ],
     pages: {
         index: {

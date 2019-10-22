@@ -57,6 +57,19 @@ export default {
             {
                 subnav: [
                     {
+                        title: 'chart',
+                        children: [
+                            {
+                                label: 'echarts',
+                                to: '/chart/echarts',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                subnav: [
+                    {
                         title: '编辑器',
                         children: [
                             {
