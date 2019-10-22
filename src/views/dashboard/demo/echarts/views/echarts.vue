@@ -6,21 +6,21 @@
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>pie</u-block>
-                        <u-echarts :options="pie" :class="$style.echarts"></u-echarts>
+                        <u-echarts autoresize :options="pie" :class="$style.echarts"></u-echarts>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>bar</u-block>
-                        <u-echarts :options="bar" :class="$style.echarts"></u-echarts>
+                        <u-echarts autoresize :options="bar" :class="$style.echarts"></u-echarts>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>polar</u-block>
-                        <u-echarts :options="polar" :class="$style.echarts"></u-echarts>
+                        <u-echarts autoresize :options="polar" :class="$style.echarts"></u-echarts>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>radar</u-block>
-                        <u-echarts :options="radar" :class="$style.echarts"></u-echarts>
+                        <u-echarts autoresize :options="radar" :class="$style.echarts"></u-echarts>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
             </u-grid-layout>
