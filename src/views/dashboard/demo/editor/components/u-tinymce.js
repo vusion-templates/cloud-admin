@@ -25,6 +25,21 @@ import 'tinymce/plugins/table';
 import 'tinymce/plugins/paste';
 import 'tinymce/plugins/help';
 import 'tinymce/plugins/wordcount';
-
+import contentStyle from '!!raw-loader!tinymce/skins/ui/oxide/content.css';
+import contentStyle2 from '!!raw-loader!tinymce/skins/content/default/content.css';
 import Editor from '@tinymce/tinymce-vue';
-export default Editor;
+export default {
+    extends: Editor,
+    props: {
+        init: {
+            type: Object,
+            default() {
+                return {
+                    skin: false,
+                    content_css: false,
+                    content_style: contentStyle.toString() + '\n' + contentStyle2.toString(),
+                };
+            },
+        },
+    },
+};
