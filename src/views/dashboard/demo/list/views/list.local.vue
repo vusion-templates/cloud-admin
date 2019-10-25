@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <u-linear-layout direction="vertical" gap="small">
         <u-page-sum>
             从远端获取所有数据，在本地进行分页处理，点击分页的时候不会发送请求，仅在刷新时会发送请求。
         </u-page-sum>
-        <u-linear-layout class="page-action">
+        <u-linear-layout>
             <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
             <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
             <u-button square icon="refresh" @click="refresh"></u-button>
@@ -44,7 +44,7 @@
                 <u-button :disabled="!allowBatchDelete" @click="batchDelete">删除</u-button>
             </u-linear-layout>
         </u-footbar>
-    </div>
+    </u-linear-layout>
 </template>
 <script>
 import page from '@/global/mixins/page/page';

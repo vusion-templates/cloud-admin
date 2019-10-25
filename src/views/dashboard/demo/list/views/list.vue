@@ -1,23 +1,21 @@
 <template>
-    <div>
+    <u-linear-layout direction="vertical" gap="small">
         <u-page-sum>
             常见的列表页
         </u-page-sum>
-        <div class="page-action">
-            <u-linear-layout display="inline">
+        <u-linear-layout justify="space-between">
+            <u-linear-layout>
                 <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
                 <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
                 <u-button square icon="refresh" @click="refresh"></u-button>
             </u-linear-layout>
-            <u-linear-layout class="page-action-right">
+            <u-linear-layout type="flex" justify="end">
                 <u-button color="primary" to="/demo/localList">本地分页</u-button>
             </u-linear-layout>
-        </div>
-        <div class="page-action">
-            <u-linear-layout class="page-action-right">
-                <u-search v-model="form.search" placeholder="搜索"></u-search>
-            </u-linear-layout>
-        </div>
+        </u-linear-layout>
+        <u-linear-layout type="flex" justify="end">
+            <u-search v-model="form.search" placeholder="搜索"></u-search>
+        </u-linear-layout>
 
         <u-table-view :class="$style.tableView" :data="list" :loading="loading" value-field="name" :values="selected">
             <u-table-view-column type="checkbox" width="8%"></u-table-view-column>
@@ -58,7 +56,7 @@
                 <u-button :disabled="!allowBatchDelete" @click="batchDelete">删除</u-button>
             </u-linear-layout>
         </u-footbar>
-    </div>
+    </u-linear-layout>
 </template>
 <script>
 import page from '@/global/mixins/page/page';

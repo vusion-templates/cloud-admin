@@ -10,7 +10,7 @@
                 </u-link>
             </u-badge>
         </div>
-        <u-navbar-dropdown>
+        <u-navbar-dropdown style="margin-right: 10px;">
             <template #title>
                 <u-avatar :src="src" :size="36" :class="$style.avatar"></u-avatar>
                 <span :class="$style.username">{{ userInfo.username }}</span>

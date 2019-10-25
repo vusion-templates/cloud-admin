@@ -1,6 +1,3 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import Message from './views/message.vue';
-import MessageDetail from './views/message.detail.vue';
 export default {
     path: 'message',
     component: require('@/global/layouts/l-wrapper.vue').default,
@@ -14,12 +11,12 @@ export default {
         {
             path: '',
             name: 'message.list',
-            component: Message,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/message.vue'),
         },
         {
             path: 'detail',
             name: 'message.detail',
-            component: MessageDetail,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/message.detail.vue'),
             meta: {
                 crumb: {
                     label: '通知详情',

@@ -1,18 +1,18 @@
 <template>
-    <div>
+    <u-linear-layout direction="vertical" gap="small">
         <u-page-sum>
             常见的列表页(无分页)
         </u-page-sum>
-        <div class="page-action">
+        <u-linear-layout justify="space-between">
             <u-linear-layout display="inline">
                 <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
                 <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
                 <u-button square icon="refresh" @click="refresh"></u-button>
             </u-linear-layout>
-            <u-linear-layout class="page-action-right">
+            <u-linear-layout justify="end">
                 <u-search v-model="form.search" placeholder="搜索"></u-search>
             </u-linear-layout>
-        </div>
+        </u-linear-layout>
         <u-table-view :class="$style.tableView" :data="list" :loading="loading" value-field="name" :values="selected">
             <u-table-view-column type="checkbox" width="8%"></u-table-view-column>
             <u-table-view-column title="消息标题">
@@ -44,7 +44,7 @@
                 <u-button :disabled="!allowBatchDelete" @click="batchDelete">删除</u-button>
             </u-linear-layout>
         </u-footbar>
-    </div>
+    </u-linear-layout>
 </template>
 <script>
 import page from '@/global/mixins/page/page';

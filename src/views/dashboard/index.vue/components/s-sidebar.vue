@@ -1,5 +1,5 @@
 <template>
-    <u-sidebar collapsible>
+    <component :is="rootName" collapsible>
         <template v-for="(group, index) in config">
             <u-sidebar-group v-if="group.children" :title="group.title" :key="group.title" :class="$style.group">
                 <template v-for="(nav, index2) in group.children">
@@ -12,13 +12,19 @@
             <u-sidebar-item v-else :key="group.label" :disabled="group.disabled" :to="group.to" :href="group.href" :target="group.href ? '_blank' : '_self'">
                 <i-icon :name="group.icon" v-if="group.icon"></i-icon>{{ group.label }}</u-sidebar-item>
         </template>
-    </u-sidebar>
+    </component>
 </template>
 <script>
 export default {
     name: 's-sidebar',
     props: {
         config: Array,
+        isSub: { type: Boolean, default: false },
+    },
+    computed: {
+        rootName() {
+            return this.isSub ? 'div' : 'u-sidebar';
+        },
     },
 };
 </script>

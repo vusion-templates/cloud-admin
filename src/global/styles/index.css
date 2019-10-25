@@ -16,15 +16,3 @@ ul, ol {
 .pager input {
     text-align: left;
 }
-.page-action {
-    margin: 15px 0;
-    padding-right: 15px;
-}
-.page-action:after{
-    content:' ';
-    display:block;
-    clear:both;
-}
-.page-action-right {
-    float: right;
-}
