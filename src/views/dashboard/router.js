@@ -16,16 +16,9 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: () => import(/* webpackChunkName: 'demo' */ './layout/index.vue'),
-            meta: {
-                title: appConfig.title,
-                crumb: {
-                    label: '首页',
-                    to: '/overview',
-                },
-            },
+            component: require('./index.vue').default,
             children: [
-                { path: '', redirect: '/overview' },
+                { path: '', redirect: 'overview' },
                 ...routes,
             ],
         },

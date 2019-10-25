@@ -11,14 +11,16 @@
             </u-badge>
         </div>
         <u-navbar-dropdown>
-            <div slot="title">
+            <template #title>
                 <u-avatar :src="src" :size="36" :class="$style.avatar"></u-avatar>
                 <span :class="$style.username">{{ userInfo.username }}</span>
-            </div>
-            <u-navbar-menu>
-                <u-navbar-menu-item to="/account/center">个人中心</u-navbar-menu-item>
-                <u-navbar-menu-item @click="logout">安全退出</u-navbar-menu-item>
-            </u-navbar-menu>
+            </template>
+            <template #default>
+                <u-navbar-menu>
+                    <u-navbar-menu-item to="/account/center">个人中心</u-navbar-menu-item>
+                    <u-navbar-menu-item @click="logout">安全退出</u-navbar-menu-item>
+                </u-navbar-menu>
+            </template>
         </u-navbar-dropdown>
     </div>
 </template>

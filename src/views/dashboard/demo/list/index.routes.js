@@ -4,7 +4,7 @@ export default {
     meta: {
         crumb: {
             label: 'demo',
-            readonly: true,
+            type: 'text',
         },
     },
     children: [

@@ -1,8 +1,8 @@
 <template>
-    <header>
-        <u-navbar :class="$style.nav">
-            <slot name="logo" slot="left"></slot>
-            <template v-for="(navGroup, index) in navConfig">
+    <u-navbar>
+        <template #left><slot name="left"></slot></template>
+        <template #default>
+            <template v-for="(navGroup, index) in config">
                 <u-navbar-dropdown v-if="navGroup.children" :title="navGroup.title" :key="navGroup.title">
                     <u-navbar-menu style="min-width: 150%">
                         <u-navbar-menu-item v-for="nav in navGroup.children" :key="nav.label" :disabled="nav.disabled" :to="nav.to" :href="nav.href" :target="nav.href ? '_blank' : '_self'">
@@ -13,27 +13,18 @@
                 <u-navbar-divider v-else-if="navGroup === '|'" :key="index" :class="$style.divider"></u-navbar-divider>
                 <u-navbar-item v-else :key="navGroup.label" :disabled="navGroup.disabled" :to="navGroup.to" :href="navGroup.href" :target="navGroup.href ? '_blank' : '_self'">{{ navGroup.label }}</u-navbar-item>
             </template>
-            <slot slot="right" name="headerRight"></slot>
-        </u-navbar>
-    </header>
+        </template>
+        <template #right><slot name="right"></slot></template>
+    </u-navbar>
 </template>
 <script>
 export default {
     props: {
-        navConfig: Array,
+        config: Array,
     },
 };
 </script>
 <style module>
-.nav {
-    background: $sidebar-background-color;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: $navbar-height;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-}
 .nav .divider {
     margin-left: 0;
 }

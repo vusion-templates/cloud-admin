@@ -5,7 +5,7 @@ export default {
         {
             path: '404',
             name: '404',
-            component: () => import(/* webpackChunkName: 'exception' */ './views/404.vue'),
+            component: require('./views/404.vue').default,
             meta: {
                 title: '抱歉，你访问的页面不存在。',
             },
@@ -13,7 +13,7 @@ export default {
         {
             path: '500',
             name: '500',
-            component: () => import(/* webpackChunkName: 'exception' */ './views/500.vue'),
+            component: require('./views/500.vue').default,
             meta: {
                 title: '抱歉，服务出现错误。',
             },

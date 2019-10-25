@@ -1,9 +1,10 @@
-import moduleOrder from './moduleOrder';
+import modulesOrder from './modules';
+
 const cache = {};
-const moduleConfig = {};
+const modulesConfig = {};
 function importAll(r) {
     r.keys().forEach((key) => {
-        const [moduleDir, moduleEnv] = key.replace(/(.*?)\/module\/(.*?)\.js/, '$1||$2').split('||');
+        const [moduleDir, moduleEnv] = key.split(/\/module\/(.+?)\.js$/);
         const envs = cache[moduleDir] = cache[moduleDir] || {};
         envs[moduleEnv] = r(key).default;
     });
@@ -15,20 +16,21 @@ importAll(require.context('./', true, /module\/(.*?)\.js$/));
 Object.keys(cache).forEach((key) => {
     const moduleEnvs = cache[key];
     if (moduleEnvs.base && moduleEnvs.base.module) {
-        moduleConfig[moduleEnvs.base.module] = moduleEnvs.base;
+        modulesConfig[moduleEnvs.base.module] = moduleEnvs.base;
     } else {
         console.error(key + ' 模块的 module/base.js 不存在，或未声明 module 信息');
     }
 });
 
-const sort = function (modules, moduleOrder) {
-    return moduleOrder.map((moduleKey) => {
+function sort(modulesConfig, modulesOrder) {
+    return modulesOrder.map((moduleKey) => {
         if (typeof moduleKey === 'string' && moduleKey !== '|') {
-            return modules[moduleKey];
+            return modulesConfig[moduleKey];
         } else {
             return moduleKey;
         }
     });
-};
-export default moduleConfig;
-export const sortModuleConfig = sort(moduleConfig, moduleOrder);
+}
+
+export default modulesConfig;
+export const sortedModulesConfig = sort(modulesConfig, modulesOrder);

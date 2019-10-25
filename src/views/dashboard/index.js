@@ -3,8 +3,8 @@ import 'babel-polyfill';
 import Vue from 'vue';
 import _ from 'lodash';
 import router from './router';
-import './components';
-import './moduleConfig';
+import './library';
+import './modulesConfig';
 // import { initI18n } from './i18n';
 
 const app = new Vue({
