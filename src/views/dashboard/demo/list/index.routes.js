@@ -1,11 +1,6 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import List from './views/list.vue';
-import localList from './views/list.local.vue';
-import tabsList from './views/list.tabs.vue';
-import noPageList from './views/list.noPage.vue';
 export default {
     path: 'demo',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
             label: 'demo',
@@ -16,7 +11,7 @@ export default {
         {
             path: 'list',
             name: 'demo.list',
-            component: List,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/list.vue'),
             meta: {
                 title: '列表页',
                 crumb: {
@@ -28,7 +23,7 @@ export default {
         {
             path: 'tabs',
             name: 'demo.tabsList',
-            component: tabsList,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/list.tabs.vue'),
             meta: {
                 title: 'tab 列表',
                 crumb: {
@@ -44,7 +39,7 @@ export default {
                 {
                     path: 'localList',
                     name: 'demo.tabs.localList',
-                    component: localList,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
                     meta: {
                         title: '本地分页',
                         crumb: {
@@ -55,7 +50,7 @@ export default {
                 {
                     path: 'list',
                     name: 'demo.tabs.list',
-                    component: List,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/list.vue'),
                     meta: {
                         title: '列表页',
                         crumb: {
@@ -66,7 +61,7 @@ export default {
                 {
                     path: 'noPageList',
                     name: 'demo.tabs.noPageList',
-                    component: noPageList,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/list.noPage.vue'),
                     meta: {
                         title: '列表页(无分页)',
                         crumb: {
@@ -80,7 +75,7 @@ export default {
         {
             path: 'localList',
             name: 'demo.localList',
-            component: localList,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
             meta: {
                 title: '本地分页',
                 crumb: {

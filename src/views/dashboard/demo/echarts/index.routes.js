@@ -1,8 +1,6 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import Echarts from './views/echarts.vue';
 export default {
     path: 'chart',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
             label: '图表',
@@ -12,7 +10,7 @@ export default {
     children: [
         {
             path: 'echarts',
-            component: Echarts,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/echarts.vue'),
             meta: {
                 crumb: {
                     label: 'Echarts',

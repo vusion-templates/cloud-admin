@@ -6,6 +6,7 @@ module.exports = {
     overwrite: false,
     staticPath: './src/static',
     srcPath: './src',
+    libraryPath: './src/global',
     baseCSSPath: './src/global/styles/index.css',
     globalCSSPath: './src/global/styles/theme.css',
     alias: {

@@ -1,9 +1,6 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import Form from './views/form.vue';
-import Setting from './views/setting.vue';
 export default {
     path: 'form',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         title: '表单',
         crumb: {
@@ -17,7 +14,7 @@ export default {
         },
         {
             path: 'setting',
-            component: Setting,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/setting.vue'),
             meta: {
                 crumb: {
                     label: '设置页',
@@ -27,7 +24,7 @@ export default {
         },
         {
             path: 'normal',
-            component: Form,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/form.vue'),
             meta: {
                 title: '标准表单',
                 crumb: {

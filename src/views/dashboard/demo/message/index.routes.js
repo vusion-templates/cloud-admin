@@ -3,7 +3,7 @@ import Message from './views/message.vue';
 import MessageDetail from './views/message.detail.vue';
 export default {
     path: 'message',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         title: '系统通知',
         crumb: {

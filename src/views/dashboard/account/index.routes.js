@@ -1,10 +1,6 @@
-import Center from './views/center.vue';
-import Setting from './views/setting.vue';
-import Account from './views/index.vue';
-import Security from './views/security.vue';
 export default {
     path: 'account',
-    component: Account,
+    component: () => import(/* webpackChunkName: 'account' */ './views/index.vue'),
     children: [
         {
             path: '',
@@ -13,7 +9,7 @@ export default {
         {
             path: 'center',
             name: 'account.center',
-            component: Center,
+            component: () => import(/* webpackChunkName: 'account' */ './views/center.vue'),
             meta: {
                 title: '个人中心',
             },
@@ -21,7 +17,7 @@ export default {
         {
             path: 'setting',
             name: 'account.setting',
-            component: Setting,
+            component: () => import(/* webpackChunkName: 'account' */ './views/setting.vue'),
             meta: {
                 title: '个人设置',
             },
@@ -29,7 +25,7 @@ export default {
         {
             path: 'security',
             name: 'account.security',
-            component: Security,
+            component: () => import(/* webpackChunkName: 'account' */ './views/security.vue'),
             meta: {
                 title: '安全设置',
             },

@@ -24,9 +24,11 @@ const publicPathPrefix = !isDevelopment ? '/cloud-admin/' : '/';
 
 const devServer = require('./webpack.dev-server')(publicPathPrefix);
 const proxy = devServer.proxy;
+// vue-cli 对 proxy 不支持 context 的自定义
 delete devServer.proxy;
 const manifest = require(isDevelopment ? './dll/vendor.manifest.json' : './dll/vendor.manifest.online.json');
 const outputDir = path.resolve(__dirname, 'public');
+
 const vueConfig = {
     outputDir,
     publicPath: publicPathPrefix,
@@ -137,4 +139,5 @@ const vueConfig = {
         proxy,
     },
 };
+
 module.exports = vueConfig;

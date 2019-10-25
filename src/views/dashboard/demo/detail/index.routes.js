@@ -1,10 +1,6 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import Detail from './views/detail.vue';
-import DetailInfo from './views/detail/info.vue';
-import DetailMonitor from './views/detail/monitor.vue';
 export default {
     path: 'demo',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
             label: 'demo',
@@ -14,7 +10,7 @@ export default {
     children: [
         {
             path: 'detail',
-            component: Detail,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/detail.vue'),
             meta: {
                 title: '详情页',
                 crumb: {
@@ -30,12 +26,12 @@ export default {
                 {
                     path: 'info',
                     name: 'demo.detail.info',
-                    component: DetailInfo,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/detail/info.vue'),
                 },
                 {
                     path: 'monitor',
                     name: 'demo.detail.monitor',
-                    component: DetailMonitor,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/detail/monitor.vue'),
                 },
             ],
         },

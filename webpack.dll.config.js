@@ -1,19 +1,25 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const basePath = 'pub/vue/';
 module.exports = (env = {}) => {
-    const dir = path.resolve(__dirname, './dll');
+    // Dll 生成路径
+    const dllDir = path.resolve(__dirname, './dll');
+    const publicPath = '/public';
+
+    // 开发模式的文件信息
     let config = {
         filename: '[name].js',
         manifest: '[name].manifest.json',
     };
+
+    // 生产模式的文件信息
     if (env.NODE_ENV !== 'development') {
         config = {
             filename: '[name].online.js',
             manifest: '[name].manifest.online.json',
         };
     }
+
     return {
         mode: env.NODE_ENV,
         entry: {
@@ -27,8 +33,8 @@ module.exports = (env = {}) => {
         },
         output: {
             filename: config.filename,
-            path: dir,
-            publicPath: '/' + basePath,
+            path: dllDir,
+            publicPath,
             library: '[name]',
         },
         resolve: {
@@ -45,7 +51,7 @@ module.exports = (env = {}) => {
                 },
             }),
             new webpack.DllPlugin({
-                path: path.join(dir, config.manifest),
+                path: path.join(dllDir, config.manifest),
                 name: '[name]',
             }),
             new webpack.HashedModuleIdsPlugin(),

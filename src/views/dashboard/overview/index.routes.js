@@ -1,6 +1,4 @@
-import Overview from './views/overview.vue';
-
 export default {
     path: 'overview',
-    component: Overview,
+    component: require('./views/index.vue').default,
 };

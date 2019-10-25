@@ -1,12 +1,6 @@
-import Wrapper from '@/global/utils/wrapComponent';
-import Code from './views/code.vue';
-import Markdown from './views/markdown.vue';
-import Editor from './views/rich-editor.vue';
-import Brace from './views/code-brace.vue';
-import Monaco from './views/code-monaco.vue';
 export default {
     path: 'editor',
-    component: Wrapper,
+    component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
             label: '编辑器',
@@ -16,7 +10,7 @@ export default {
     children: [
         {
             path: 'code',
-            component: Code,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/code.vue'),
             meta: {
                 crumb: {
                     label: '代码编辑器',
@@ -30,7 +24,7 @@ export default {
                 },
                 {
                     path: 'brace',
-                    component: Brace,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/code-brace.vue'),
                     meta: {
                         crumb: {
                             label: '代码编辑器(Brace)',
@@ -40,7 +34,7 @@ export default {
                 },
                 {
                     path: 'monaco',
-                    component: Monaco,
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/code-monaco.vue'),
                     meta: {
                         crumb: {
                             label: '代码编辑器(Monaco)',
@@ -52,7 +46,7 @@ export default {
         },
         {
             path: 'markdown',
-            component: Markdown,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/markdown.vue'),
             meta: {
                 crumb: {
                     label: 'Markdown 编辑器',
@@ -61,7 +55,7 @@ export default {
         },
         {
             path: 'rich-editor',
-            component: Editor,
+            component: () => import(/* webpackChunkName: 'demo' */ './views/rich-editor.vue'),
             meta: {
                 crumb: {
                     label: '富文本编辑器',
