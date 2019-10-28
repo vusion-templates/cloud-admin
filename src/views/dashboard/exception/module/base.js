@@ -1,14 +1,14 @@
 export default {
     module: 'exception',
-    sideNav: {
+    sidebar: {
         title: '异常页',
         children: [
             {
-                label: '404',
+                title: '404',
                 to: '/exception/404',
             },
             {
-                label: '500',
+                title: '500',
                 to: '/exception/500',
             },
         ],

@@ -3,7 +3,7 @@ export default {
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
-            label: '编辑器',
+            title: '编辑器',
             readonly: true,
         },
     },
@@ -13,7 +13,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/code.vue'),
             meta: {
                 crumb: {
-                    label: '代码编辑器',
+                    title: '代码编辑器',
                     readonly: true,
                 },
             },
@@ -27,7 +27,7 @@ export default {
                     component: () => import(/* webpackChunkName: 'demo' */ './views/code-brace.vue'),
                     meta: {
                         crumb: {
-                            label: '代码编辑器(Brace)',
+                            title: '代码编辑器(Brace)',
                         },
                         title: '代码编辑器(Brace)',
                     },
@@ -37,7 +37,7 @@ export default {
                     component: () => import(/* webpackChunkName: 'demo' */ './views/code-monaco.vue'),
                     meta: {
                         crumb: {
-                            label: '代码编辑器(Monaco)',
+                            title: '代码编辑器(Monaco)',
                         },
                         title: '代码编辑器(Monaco)',
                     },
@@ -49,7 +49,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/markdown.vue'),
             meta: {
                 crumb: {
-                    label: 'Markdown 编辑器',
+                    title: 'Markdown 编辑器',
                 },
             },
         },
@@ -58,7 +58,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/rich-editor.vue'),
             meta: {
                 crumb: {
-                    label: '富文本编辑器',
+                    title: '富文本编辑器',
                 },
             },
         },

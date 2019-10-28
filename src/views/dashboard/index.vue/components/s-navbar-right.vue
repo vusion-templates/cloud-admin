@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :class="$style.headerRightItem">
+        <div :class="$style.item">
             <u-badge corner dot :value="messageNum">
                 <u-link
                     :class="noticeActive ? $style.active : ''"
@@ -72,14 +72,14 @@ export default {
     vertical-align: top;
     font-size: 16px;
 }
-.headerRightItem {
+.item {
     display: inline-block;
     vertical-align: top;
     width: 64px;
     text-align: center;
     line-height: 64px;
 }
-.headerRightItem .icon {
+.item .icon {
     font-size: 22px;
     line-height: 22px;
     color: #9ba4ad;

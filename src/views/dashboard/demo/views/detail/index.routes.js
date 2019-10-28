@@ -3,7 +3,7 @@ export default {
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
-            label: 'demo',
+            title: 'demo',
             readonly: true,
         },
     },
@@ -14,7 +14,7 @@ export default {
             meta: {
                 title: '详情页',
                 crumb: {
-                    label: '详情页',
+                    title: '详情页',
                 },
             },
             children: [

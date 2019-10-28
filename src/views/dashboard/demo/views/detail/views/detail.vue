@@ -46,15 +46,15 @@ export default {
             const detail = this.detail;
             return [
                 {
-                    label: '名称',
+                    title: '名称',
                     content: detail.name,
                 },
                 {
-                    label: 'ID',
+                    title: 'ID',
                     content: detail.id,
                 },
                 {
-                    label: '时间',
+                    title: '时间',
                     content: detail.time,
                 },
             ];

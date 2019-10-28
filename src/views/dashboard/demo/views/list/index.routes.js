@@ -3,7 +3,7 @@ export default {
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
-            label: 'demo',
+            title: 'demo',
             type: 'text',
         },
     },
@@ -15,7 +15,7 @@ export default {
             meta: {
                 title: '列表页',
                 crumb: {
-                    label: '列表页',
+                    title: '列表页',
                     to: '/demo/list',
                 },
             },
@@ -27,7 +27,7 @@ export default {
             meta: {
                 title: 'tab 列表',
                 crumb: {
-                    label: 'tab 列表',
+                    title: 'tab 列表',
                     readonly: true,
                 },
             },
@@ -43,7 +43,7 @@ export default {
                     meta: {
                         title: '本地分页',
                         crumb: {
-                            label: '本地分页',
+                            title: '本地分页',
                         },
                     },
                 },
@@ -54,7 +54,7 @@ export default {
                     meta: {
                         title: '列表页',
                         crumb: {
-                            label: '列表页',
+                            title: '列表页',
                         },
                     },
                 },
@@ -65,7 +65,7 @@ export default {
                     meta: {
                         title: '列表页(无分页)',
                         crumb: {
-                            label: '列表页(无分页)',
+                            title: '列表页(无分页)',
                         },
                     },
                 },
@@ -79,7 +79,7 @@ export default {
             meta: {
                 title: '本地分页',
                 crumb: {
-                    label: '本地分页',
+                    title: '本地分页',
                     to: '/demo/localList',
                 },
             },

@@ -4,7 +4,7 @@ import * as CloudUI from 'cloud-ui.js';
 import * as Components from '@/global/components';
 import filters from '@/global/filters';
 
-import { installFilters, installDirectives, installComponents, installOptions } from 'vusion-utils';
+import { installOptions, installFilters, installDirectives, installComponents } from 'vusion-utils';
 installOptions(Vue);
 installDirectives(Vue, CloudUI.directives);
 installFilters(Vue, filters);

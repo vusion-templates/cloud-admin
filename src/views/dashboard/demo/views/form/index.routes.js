@@ -4,7 +4,7 @@ export default {
     meta: {
         title: '表单',
         crumb: {
-            label: '表单',
+            title: '表单',
         },
     },
     children: [
@@ -17,7 +17,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/setting.vue'),
             meta: {
                 crumb: {
-                    label: '设置页',
+                    title: '设置页',
                 },
                 title: '设置页',
             },
@@ -28,7 +28,7 @@ export default {
             meta: {
                 title: '标准表单',
                 crumb: {
-                    label: '标准表单',
+                    title: '标准表单',
                 },
             },
         },

@@ -4,7 +4,7 @@ export default {
     meta: {
         title: '系统通知',
         crumb: {
-            label: '系统通知',
+            title: '系统通知',
         },
     },
     children: [
@@ -19,7 +19,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/message.detail.vue'),
             meta: {
                 crumb: {
-                    label: '通知详情',
+                    title: '通知详情',
                 },
             },
         },

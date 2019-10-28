@@ -4,7 +4,7 @@ import Vue from 'vue';
 import _ from 'lodash';
 import router from './router';
 import './library';
-import './modulesConfig';
+import './modules';
 // import { initI18n } from './i18n';
 
 const app = new Vue({

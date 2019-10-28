@@ -1,4 +1,4 @@
-import { sortedModulesConfig } from '../modulesConfig';
+import { sortedModules } from '../modules';
 
 export default {
     components: {
@@ -19,24 +19,24 @@ export default {
             },
             navbarConfig: [
                 {
-                    label: 'Cloud UI',
+                    title: 'Cloud UI',
                     href: 'https://vusion.github.io/cloud-ui/components/quickstart',
                 },
                 {
-                    label: 'Vusion 官网',
+                    title: 'Vusion 官网',
                     href: 'https://vusion.github.io',
                 },
                 '|',
                 {
-                    label: '模板文档',
+                    title: '模板文档',
                     href: 'https://vusion-templates.github.io/cloud-admin-site',
                 },
                 {
-                    label: 'GitHub',
+                    title: 'GitHub',
                     href: 'https://github.com/vusion-templates/cloud-admin',
                 },
             ],
-            sidebarConfig: sortedModulesConfig.map((item) => item.module ? item.sideNav : item).filter((item) => item.exist !== false),
+            sidebarConfig: sortedModules.map((item) => item.name ? item.sidebar : item).filter((item) => item.exist !== false),
         };
     },
 };

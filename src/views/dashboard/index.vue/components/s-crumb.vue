@@ -1,7 +1,7 @@
 <template>
     <u-crumb v-if="crumbs.length > 1">
         <template v-for="item in crumbs">
-            <u-crumb-item v-bind="item" :key="item.label">{{ item.label }}</u-crumb-item>
+            <u-crumb-item v-bind="item" :key="item.title">{{ item.title }}</u-crumb-item>
         </template>
     </u-crumb>
 </template>
@@ -35,9 +35,6 @@ export default {
                         crumb.to = route.path;
                     if (crumb.readonly || crumb.to === to.path)
                         crumb.type = 'text';
-
-                    if (crumb.label)
-                        crumb.title = crumb.label;
 
                     if (crumb.title)
                         crumbs.push(crumb);
