@@ -6,21 +6,21 @@
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>pie</u-block>
-                        <u-echarts autoresize :options="pie" :class="$style.echarts"></u-echarts>
+                        <x-echarts autoresize :options="pie" :class="$style.echarts"></x-echarts>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>bar</u-block>
-                        <u-echarts autoresize :options="bar" :class="$style.echarts"></u-echarts>
+                        <x-echarts autoresize :options="bar" :class="$style.echarts"></x-echarts>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>polar</u-block>
-                        <u-echarts autoresize :options="polar" :class="$style.echarts"></u-echarts>
+                        <x-echarts autoresize :options="polar" :class="$style.echarts"></x-echarts>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>radar</u-block>
-                        <u-echarts autoresize :options="radar" :class="$style.echarts"></u-echarts>
+                        <x-echarts autoresize :options="radar" :class="$style.echarts"></x-echarts>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
             </u-grid-layout>
@@ -33,7 +33,7 @@ const libLoad = {
 };
 export default {
     components: {
-        UEcharts: () => import(/* webpackChunkName: "echarts" */ '../components/u-echarts').then((component) => {
+        XEcharts: () => import(/* webpackChunkName: "echarts" */ '../components/x-echarts').then((component) => {
             libLoad.status = true;
             return component;
         }),

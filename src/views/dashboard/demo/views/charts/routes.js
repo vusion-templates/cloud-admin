@@ -10,7 +10,7 @@ export default {
             path: 'echarts',
             component: () => import(/* webpackChunkName: 'demo' */ './views/echarts.vue'),
             meta: {
-                title: 'Echarts',
+                title: 'ECharts',
             },
         },
     ],
