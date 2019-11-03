@@ -31,7 +31,7 @@ router.afterEach((to, from) => {
     const moduleRoute = to.matched.concat().reverse().find((item) => item.meta.title);
     if (moduleRoute) {
         const metaTitle = moduleRoute.meta.title;
-        document.title = _.isFunction(metaTitle) ? metaTitle(to, from) : metaTitle;
+        document.title = (_.isFunction(metaTitle) ? metaTitle(to, from) : metaTitle) + ' - ' + appConfig.title;
     }
 });
 
