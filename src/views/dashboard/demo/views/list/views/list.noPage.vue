@@ -48,7 +48,7 @@
 </template>
 <script>
 import page from '@/global/mixins/page/page';
-import messageService from '../services/index';
+import noticeService from '../services/index';
 export default {
     mixins: [page],
     data() {
@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         loadList() {
-            return messageService.list({
+            return noticeService.list({
                 url: {
                     query: {
                         search: this.form.search,

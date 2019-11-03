@@ -1,11 +1,11 @@
 <template>
     <div>
         <div :class="$style.item">
-            <u-badge corner dot :value="messageNum">
+            <u-badge corner dot :value="noticeCount">
                 <u-link
                     :class="noticeActive ? $style.active : ''"
-                    to="/message"
-                    title="个人中心">
+                    to="/notice"
+                    title="通知">
                     <i-icon name="notice" :class="$style.icon"></i-icon>
                 </u-link>
             </u-badge>
@@ -32,7 +32,7 @@ export default {
     data() {
         return {
             src: require('../assets/avatar.png'),
-            messageNum: 6,
+            noticeCount: 6,
             noticeActive: false,
         };
     },

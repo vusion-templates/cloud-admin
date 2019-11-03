@@ -10,7 +10,7 @@
     </u-article>
 </template>
 <script>
-import messageService from '../services/index';
+import noticeService from '../services/index';
 export default {
     data() {
         return {
@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         loadDetail() {
-            messageService.detail({
+            noticeService.detail({
                 url: {
                     query: {
                         channelname: this.$route.query.id,

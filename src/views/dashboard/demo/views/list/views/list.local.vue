@@ -48,7 +48,7 @@
 </template>
 <script>
 import page from '@/global/mixins/page/page';
-import messageService from '../services/index';
+import noticeService from '../services/index';
 export default {
     mixins: [page],
     data() {
@@ -73,7 +73,7 @@ export default {
     },
     methods: {
         loadList() {
-            return messageService.list().then((res) => {
+            return noticeService.list().then((res) => {
                 const result = [];
                 res.data.result.forEach((item) => {
                     item.channellist.forEach((channel) => {

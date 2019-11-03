@@ -21,7 +21,7 @@
             <u-table-view-column title="操作">
                 <template slot="cell" slot-scope="scope">
                     <u-linear-layout>
-                        <u-link :to="{name: 'message.detail', query: {id: scope.item.ch_name}}">
+                        <u-link :to="{ path: '/notice/detail', query: {id: scope.item.ch_name}}">
                             查看详情
                         </u-link>
                     </u-linear-layout>
@@ -46,7 +46,7 @@
 </template>
 <script>
 import page from '@/global/mixins/page/page';
-import messageService from '../services/index';
+import noticeService from '../services/index';
 export default {
     mixins: [page],
     data() {
@@ -72,7 +72,7 @@ export default {
     methods: {
         loadList() {
             const page = this.getFormForPage();
-            return messageService.list({
+            return noticeService.list({
                 url: {
                     query: {
                         page: page.pageNum,

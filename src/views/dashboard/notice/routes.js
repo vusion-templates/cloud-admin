@@ -1,5 +1,5 @@
 export default {
-    path: 'message',
+    path: 'notice',
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         title: '系统通知',
@@ -8,16 +8,14 @@ export default {
         { path: '', redirect: 'list' },
         {
             path: 'list',
-            name: 'message.list',
-            component: () => import(/* webpackChunkName: 'demo' */ './views/message.vue'),
+            component: () => import(/* webpackChunkName: 'demo' */ './views/list.vue'),
             meta: {
                 title: '通知列表',
             },
         },
         {
             path: 'detail',
-            name: 'message.detail',
-            component: () => import(/* webpackChunkName: 'demo' */ './views/message.detail.vue'),
+            component: () => import(/* webpackChunkName: 'demo' */ './views/detail.vue'),
             meta: {
                 title: '通知详情',
             },
