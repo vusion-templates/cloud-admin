@@ -14,15 +14,15 @@ export default {
             tabs: [
                 {
                     title: '列表页',
-                    to: '/demo/tabs/list',
+                    to: '/demo/list/tabs/list',
                 },
                 {
                     title: '本地分页',
-                    to: '/demo/tabs/localList',
+                    to: '/demo/list/tabs/localList',
                 },
                 {
                     title: '列表页(无分页)',
-                    to: '/demo/tabs/noPageList',
+                    to: '/demo/list/tabs/noPageList',
                 },
 
             ],

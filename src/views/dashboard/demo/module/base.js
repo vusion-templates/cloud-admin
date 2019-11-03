@@ -9,15 +9,15 @@ export default {
                         children: [
                             {
                                 title: '基础列表',
-                                to: '/demo/list',
+                                to: '/demo/list/basic',
                             },
                             {
                                 title: '本地列表',
-                                to: '/demo/localList',
+                                to: '/demo/list/localList',
                             },
                             {
-                                title: 'tab 列表',
-                                to: '/demo/tabs',
+                                title: 'Tab 列表',
+                                to: '/demo/list/tabs',
                             },
                         ],
                     },

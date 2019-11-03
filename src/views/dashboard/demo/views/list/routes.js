@@ -2,22 +2,24 @@ export default {
     path: 'list',
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
-        crumb: {
-            title: 'list',
-            type: 'text',
-        },
+        title: '列表',
     },
     children: [
+        { path: '', redirect: 'basic' },
         {
             path: 'basic',
             name: 'demo.list',
             component: () => import(/* webpackChunkName: 'demo' */ './views/list.vue'),
             meta: {
-                title: '列表页',
-                crumb: {
-                    title: '列表页',
-                    to: '/demo/basic',
-                },
+                title: '基础列表',
+            },
+        },
+        {
+            path: 'localList',
+            name: 'demo.localList',
+            component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
+            meta: {
+                title: '本地分页',
             },
         },
         {
@@ -34,18 +36,7 @@ export default {
             children: [
                 {
                     path: '',
-                    redirect: '/demo/tabs/list',
-                },
-                {
-                    path: 'localList',
-                    name: 'demo.tabs.localList',
-                    component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
-                    meta: {
-                        title: '本地分页',
-                        crumb: {
-                            title: '本地分页',
-                        },
-                    },
+                    redirect: 'list',
                 },
                 {
                     path: 'list',
@@ -55,6 +46,17 @@ export default {
                         title: '列表页',
                         crumb: {
                             title: '列表页',
+                        },
+                    },
+                },
+                {
+                    path: 'localList',
+                    name: 'demo.tabs.localList',
+                    component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
+                    meta: {
+                        title: '本地分页',
+                        crumb: {
+                            title: '本地分页',
                         },
                     },
                 },
@@ -70,19 +72,6 @@ export default {
                     },
                 },
             ],
-
-        },
-        {
-            path: 'localList',
-            name: 'demo.localList',
-            component: () => import(/* webpackChunkName: 'demo' */ './views/list.local.vue'),
-            meta: {
-                title: '本地分页',
-                crumb: {
-                    title: '本地分页',
-                    to: '/demo/localList',
-                },
-            },
         },
     ],
 };
