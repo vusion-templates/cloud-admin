@@ -1,20 +1,15 @@
 export default {
-    path: 'chart',
+    path: 'charts',
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
-        crumb: {
-            title: '图表',
-            readonly: true,
-        },
+        title: '图表',
     },
     children: [
+        { path: '', redirect: 'echarts' },
         {
             path: 'echarts',
             component: () => import(/* webpackChunkName: 'demo' */ './views/echarts.vue'),
             meta: {
-                crumb: {
-                    title: 'Echarts',
-                },
                 title: 'Echarts',
             },
         },

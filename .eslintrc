@@ -5,7 +5,9 @@
     "browser": true,
     "node": true
   },
-  "globals": {},
+  "globals": {
+    "SUB_ROUTES_RE": true
+  },
   "rules": {
     "no-debugger": ["error"],
     "no-duplicate-imports": ["error"],

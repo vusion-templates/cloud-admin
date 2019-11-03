@@ -73,6 +73,11 @@ const vueConfig = {
         config.plugins.delete('preload');
         config.plugins.delete('prefetch');
 
+        // require.context 里面的参数必须是常量，但多处使用比较麻烦
+        config.plugin('import-sub-routes').use(webpack.DefinePlugin, [{
+            SUB_ROUTES_RE: `/\\.\\/(views\\/)?[^\\\\/]+\\/routes\\.js$/`,
+        }]);
+
         config.plugin('dll').use(webpack.DllReferencePlugin, [{
             manifest,
         }]);

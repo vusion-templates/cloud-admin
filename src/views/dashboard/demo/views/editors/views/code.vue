@@ -13,11 +13,11 @@ export default {
             tabs: [
                 {
                     title: 'Monaco',
-                    to: '/editor/code/monaco',
+                    to: '/demo/editors/code/monaco',
                 },
                 {
                     title: 'Brace',
-                    to: '/editor/code/brace',
+                    to: '/demo/editors/code/brace',
                 },
             ],
         };

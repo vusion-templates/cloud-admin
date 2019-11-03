@@ -1,22 +1,22 @@
 export default {
-    path: 'demo',
+    path: 'list',
     component: require('@/global/layouts/l-wrapper.vue').default,
     meta: {
         crumb: {
-            title: 'demo',
+            title: 'list',
             type: 'text',
         },
     },
     children: [
         {
-            path: 'list',
+            path: 'basic',
             name: 'demo.list',
             component: () => import(/* webpackChunkName: 'demo' */ './views/list.vue'),
             meta: {
                 title: '列表页',
                 crumb: {
                     title: '列表页',
-                    to: '/demo/list',
+                    to: '/demo/basic',
                 },
             },
         },
