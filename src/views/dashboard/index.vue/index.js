@@ -1,13 +1,18 @@
 import { sortedModules } from '../modules';
-
+import LDashboard from '@/global/layouts/l-dashboard.vue';
+import SLogo from './components/s-logo.vue';
+import SNavbar from './components/s-navbar.vue';
+import SNavbarRight from './components/s-navbar-right.vue';
+import SSidebar from './components/s-sidebar.vue';
+import SCrumb from './components/s-crumb.vue';
 export default {
     components: {
-        LDashboard: require('@/global/layouts/l-dashboard.vue').default,
-        SLogo: require('./components/s-logo.vue').default,
-        SNavbar: require('./components/s-navbar.vue').default,
-        SNavbarRight: require('./components/s-navbar-right.vue').default,
-        SSidebar: require('./components/s-sidebar.vue').default,
-        SCrumb: require('./components/s-crumb.vue').default,
+        LDashboard,
+        SLogo,
+        SNavbar,
+        SNavbarRight,
+        SSidebar,
+        SCrumb,
     },
     data() {
         return {

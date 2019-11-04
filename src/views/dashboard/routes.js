@@ -1,10 +1,12 @@
+import { importSubRoutes } from '@/global/utils/routerUtils';
+import Layout from './index.vue';
 export default [
     {
         path: '/',
-        component: require('./index.vue').default,
+        component: Layout,
         children: [
             { path: '', redirect: 'overview' },
-            ...require('@/global/utils/routerUtils').importSubRoutes(require.context('./', true, SUB_ROUTES_RE)),
+            ...importSubRoutes(require.context('./', true, /\.\/(views\/)?[^\\/]+\/routes\.js$/)),
         ],
     },
     { path: '*', beforeEnter(to, from, next) {

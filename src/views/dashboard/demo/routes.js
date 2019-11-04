@@ -1,11 +1,13 @@
+import Wrapper from '@/global/layouts/l-wrapper.vue';
+import { importSubRoutes } from '@/global/utils/routerUtils';
 export default {
     path: 'demo',
-    component: require('@/global/layouts/l-wrapper.vue').default,
+    component: Wrapper,
     children: [
         {
             path: '',
             redirect: 'list',
         },
-        ...require('@/global/utils/routerUtils').importSubRoutes(require.context('./', true, SUB_ROUTES_RE)),
+        ...importSubRoutes(require.context('./', true, /\.\/(views\/)?[^\\/]+\/routes\.js$/)),
     ],
 };

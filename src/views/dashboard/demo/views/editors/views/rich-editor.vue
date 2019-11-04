@@ -13,6 +13,8 @@
 const libLoad = {
     status: false,
 };
+import img from '../assets/images/logo.png';
+
 export default {
     components: {
         'u-tinymce': () => import(/* webpackChunkName: "tinymce" */ '../components/u-tinymce').then((component) => {
@@ -21,7 +23,6 @@ export default {
         }),
     },
     data() {
-        const img = require('../assets/images/logo.png');
         return {
             content:
                 `

@@ -16,4 +16,3 @@ export function importSubRoutes(r) {
     return subRoutes;
 }
 
-export const subRoutesRE = /\.\/(views\/)?[^\\/]+\/routes\.js$/;

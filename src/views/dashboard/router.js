@@ -2,11 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import _ from 'lodash';
 import appConfig from './app.config';
+import routes from './routes';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    routes: require('./routes').default,
+    routes,
 });
 
 // 权限验证

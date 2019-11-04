@@ -1,6 +1,7 @@
+import Wrapper from '@/global/layouts/l-wrapper.vue';
 export default {
     path: 'form',
-    component: require('@/global/layouts/l-wrapper.vue').default,
+    component: Wrapper,
     meta: {
         title: '表单',
     },

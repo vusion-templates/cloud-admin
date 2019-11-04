@@ -1,11 +1,14 @@
+import Wrapper from '@/global/layouts/l-wrapper.vue';
+import Exception404 from './views/404.vue';
+import Exception500 from './views/500.vue';
 export default {
     path: 'exception',
-    component: require('@/global/layouts/l-wrapper.vue').default,
+    component: Wrapper,
     children: [
         {
             path: '404',
             name: '404',
-            component: require('./views/404.vue').default,
+            component: Exception404,
             meta: {
                 title: '抱歉，你访问的页面不存在。',
             },
@@ -13,7 +16,7 @@ export default {
         {
             path: '500',
             name: '500',
-            component: require('./views/500.vue').default,
+            component: Exception500,
             meta: {
                 title: '抱歉，服务出现错误。',
             },

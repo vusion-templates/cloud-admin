@@ -1,6 +1,7 @@
+import Wrapper from '@/global/layouts/l-wrapper.vue';
 export default {
     path: 'editors',
-    component: require('@/global/layouts/l-wrapper.vue').default,
+    component: Wrapper,
     meta: {
         title: '编辑器',
     },

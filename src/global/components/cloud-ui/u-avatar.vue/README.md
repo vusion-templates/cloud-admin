@@ -13,10 +13,11 @@
 </div>
 </template>
 <script>
+import avatar from '@/components/u-avatar.vue/avatar.png';
 export default {
     data() {
         return {
-            src: require('@/components/u-avatar.vue/avatar.png'),
+            src: avatar,
             noImage: '/noImage',
         };
     },

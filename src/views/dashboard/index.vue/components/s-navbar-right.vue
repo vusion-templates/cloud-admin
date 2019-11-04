@@ -25,13 +25,14 @@
     </div>
 </template>
 <script>
+import avatar from '../assets/avatar.png';
 export default {
     props: {
         userInfo: Object,
     },
     data() {
         return {
-            src: require('../assets/avatar.png'),
+            src: avatar,
             noticeCount: 6,
             noticeActive: false,
         };

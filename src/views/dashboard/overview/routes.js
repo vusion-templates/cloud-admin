@@ -1,5 +1,6 @@
+import Overview from './views/index.vue';
 export default {
     path: 'overview',
-    component: require('./views/index.vue').default,
+    component: Overview,
     meta: { title: '总览' },
 };
