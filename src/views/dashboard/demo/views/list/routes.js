@@ -25,7 +25,6 @@ export default {
         },
         {
             path: 'tabs',
-            name: 'demo.tabsList',
             component: () => import(/* webpackChunkName: 'demo' */ './views/list.tabs.vue'),
             meta: {
                 title: 'tab 列表',
@@ -38,6 +37,7 @@ export default {
                 {
                     path: '',
                     redirect: 'list',
+                    name: 'demo.tabsList',
                 },
                 {
                     path: 'list',

@@ -5,7 +5,7 @@
                 {{ (detail.name || '').substring(0, 2).toUpperCase() }}
             </div>
             <div slot="act">
-                <u-button :to="{name: 'demo.edit', query: {id: $route.query.id}}">
+                <u-button :to="{name: 'demo.form.setting', query: {id: $route.query.id}}">
                     设置
                 </u-button>
             </div>

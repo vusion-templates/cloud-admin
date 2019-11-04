@@ -6,7 +6,7 @@
         <u-linear-layout justify="space-between">
             <u-linear-layout display="inline">
                 <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
-                <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
+                <u-button icon="create" color="primary" to="/demo/form/basic">创建实例(路由)</u-button>
                 <u-button square icon="refresh" @click="refresh"></u-button>
             </u-linear-layout>
             <u-linear-layout justify="end">

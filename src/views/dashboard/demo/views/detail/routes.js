@@ -8,6 +8,7 @@ export default {
         {
             path: '',
             redirect: 'info',
+            name: 'demo.detail',
         },
         {
             path: 'info',

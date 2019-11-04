@@ -6,11 +6,11 @@
         <u-linear-layout justify="space-between">
             <u-linear-layout>
                 <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
-                <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
+                <u-button icon="create" color="primary" to="/demo/form/basic">创建实例(路由)</u-button>
                 <u-button square icon="refresh" @click="refresh"></u-button>
             </u-linear-layout>
             <u-linear-layout type="flex" justify="end">
-                <u-button color="primary" to="/demo/localList">本地分页</u-button>
+                <u-button color="primary" to="/demo/list/localList">本地分页</u-button>
             </u-linear-layout>
         </u-linear-layout>
         <u-linear-layout type="flex" justify="end">

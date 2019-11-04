@@ -19,6 +19,7 @@ export default {
         },
         {
             path: 'setting',
+            name: 'demo.form.setting',
             component: () => import(/* webpackChunkName: 'demo' */ './views/setting.vue'),
             meta: {
                 title: '设置页',

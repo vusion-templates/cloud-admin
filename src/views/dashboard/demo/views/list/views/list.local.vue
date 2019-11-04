@@ -5,7 +5,7 @@
         </u-page-sum>
         <u-linear-layout>
             <u-button icon="create" color="primary" @click="createItem">创建实例(方法)</u-button>
-            <u-button icon="create" color="primary" to="/form/normal">创建实例(路由)</u-button>
+            <u-button icon="create" color="primary" to="/demo/form/basic">创建实例(路由)</u-button>
             <u-button square icon="refresh" @click="refresh"></u-button>
         </u-linear-layout>
         <u-table-view :class="$style.tableView" :data="list" :loading="loading" value-field="name" :values="selected">
