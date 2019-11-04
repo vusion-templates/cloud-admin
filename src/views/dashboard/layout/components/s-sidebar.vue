@@ -1,7 +1,7 @@
 <template>
     <component :is="rootName" collapsible>
         <template v-for="(group, index) in config">
-            <u-sidebar-group v-if="group.children" :title="group.title" :key="group.title" :class="$style.group">
+            <u-sidebar-group @toggle="openParent($event)" v-if="group.children" :title="group.title" :key="group.title" :class="$style.group">
                 <template v-for="(item, index2) in group.children">
                     <s-sidebar :class="$style.sub" v-if="item.subnav" :config="item.subnav" :key="index2"></s-sidebar>
                     <u-sidebar-item v-else :key="item.title" :disabled="item.disabled" :to="item.to" :href="item.href" :target="item.href ? '_blank' : '_self'">

@@ -1,5 +1,5 @@
 import { importSubRoutes } from '@/global/utils/routerUtils';
-import Layout from './index.vue';
+import Layout from './layout/views/index.vue';
 export default [
     {
         path: '/',

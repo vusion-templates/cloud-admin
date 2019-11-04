@@ -1,10 +1,10 @@
-import { sortedModules } from '../modules';
+import { sortedModules } from '../../../modules';
 import LDashboard from '@/global/layouts/l-dashboard.vue';
-import SLogo from './components/s-logo.vue';
-import SNavbar from './components/s-navbar.vue';
-import SNavbarRight from './components/s-navbar-right.vue';
-import SSidebar from './components/s-sidebar.vue';
-import SCrumb from './components/s-crumb.vue';
+import SLogo from '../../components/s-logo.vue';
+import SNavbar from '../../components/s-navbar.vue';
+import SNavbarRight from '../../components/s-navbar-right.vue';
+import SSidebar from '../../components/s-sidebar.vue';
+import SCrumb from '../../components/s-crumb.vue';
 export default {
     components: {
         LDashboard,
