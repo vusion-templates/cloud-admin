@@ -33,11 +33,7 @@ const libLoad = {
 };
 export default {
     components: {
-        XAceEditor: () => Promise.all([
-            import(/* webpackChunkName: "brace" */ '@cloud-ui/x-ace-editor.vue'),
-            import(/* webpackChunkName: "brace" */ 'brace/mode/javascript'),
-            import(/* webpackChunkName: "brace" */ 'brace/theme/monokai'),
-        ]).then(([component]) => {
+        XAceEditor: () => import(/* webpackChunkName: "brace" */ '../components/u-brace').then((component) => {
             libLoad.status = true;
             return component;
         }),
