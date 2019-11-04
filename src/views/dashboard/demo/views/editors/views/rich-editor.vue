@@ -13,7 +13,7 @@
 const libLoad = {
     status: false,
 };
-import img from '../assets/images/logo.png';
+import img from '../assets/images/test.png';
 
 export default {
     components: {
@@ -27,7 +27,7 @@ export default {
             content:
                 `
   <p style="text-align: center;">
-    <img title="Logo" src="${img}" alt="Logo" width="200" height="199" />
+    <img title="pic" src="${img}" alt="pic" width="200" height="199" />
   </p>
 
   <h2 style="text-align: center;">Welcome to the TinyMCE editor demo!</h2>

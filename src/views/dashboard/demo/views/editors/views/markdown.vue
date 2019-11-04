@@ -29,6 +29,7 @@
     </div>
 </template>
 <script>
+import img from '../assets/images/test.png';
 const libLoad = {
     status: false,
 };
@@ -45,7 +46,7 @@ export default {
     },
     data() {
         const content = [
-            '![image](https://uicdn.toast.com/toastui/img/tui-editor-bi.png)',
+            `![image](${img})`,
             '# Heading 1',
             '## Heading 2',
             '### Heading 3',

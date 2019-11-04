@@ -10,7 +10,7 @@
             <u-table-view-column type="checkbox" width="8%"></u-table-view-column>
             <u-table-view-column title="消息标题">
                 <template slot="cell" slot-scope="{ item }">
-                    <img :src="item.thumb" alt="" height="40"> {{ item.name }}
+                    {{ item.name }}
                 </template>
             </u-table-view-column>
             <u-table-view-column title="时间">
@@ -103,7 +103,7 @@ export default {
 };
 </script>
 <style module>
-.tableView img {
+.tableView {
     vertical-align: middle;
 }
 </style>
