@@ -19,9 +19,9 @@ export default {
         this.loadListSource = this.loadList; // cache this
         this.deleteItemSource = this.deleteItem; // cache this
         this.updateItemSource = this.updateItem; // cache this
+        this.loadList = this.loadListWrap;
         this.deleteItem = this.deleteItemWrap;
         this.updateItem = this.updateItemWrap;
-        this.loadList = this.loadListWrap;
         this.init();
     },
     data() {
