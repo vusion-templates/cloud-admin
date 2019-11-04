@@ -3,11 +3,11 @@ import Dates from '@/global/filters/dates';
 describe('global/filters/dates', () => {
     test('dateFormat', () => {
         expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'))).toBe('2019-09-09 11:00:00');
-        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'YYYY-MM-DD')).toBe('2019-09-09');
-        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'YYYY-MM-DD HH:mm')).toBe('2019-09-09 11:00');
-        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'YYYY-MM-DD HH:mm:ss')).toBe('2019-09-09 11:00:00');
-        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'YYYY-MM')).toBe('2019-09');
-        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'YYYY-M')).toBe('2019-9');
+        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'yyyy-MM-dd')).toBe('2019-09-09');
+        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'yyyy-MM-dd HH:mm')).toBe('2019-09-09 11:00');
+        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'yyyy-MM-dd HH:mm:ss')).toBe('2019-09-09 11:00:00');
+        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'yyyy-MM')).toBe('2019-09');
+        expect(Dates.dateFormat(new Date('2019-09-09 11:00:00'), 'yyyy-M')).toBe('2019-9');
 
         expect(Dates.dateFormat()).toBe('-');
     });

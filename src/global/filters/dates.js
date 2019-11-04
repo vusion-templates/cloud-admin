@@ -1,95 +1,42 @@
-const dateFormat = (value, formater = 'YYYY-MM-DD HH:mm:ss') => {
+import { format, isYesterday, startOfToday, addDays, isSameDay } from 'date-fns';
+const formatDate = function (value) {
     if (!value)
         return '-';
-    const padStart = function (str) {
-        return ((str || '') + '').padStart(2, 0);
-    };
-    const map = {
-        YYYY(now) {
-            return now.getFullYear();
-        },
-        MM(now) {
-            return padStart(map.M(now));
-        },
-        M(now) {
-            return now.getMonth() + 1;
-        },
-        DD(now) {
-            return padStart(map.D(now));
-        },
-        D(now) {
-            return now.getDate();
-        },
-        HH(now) {
-            return padStart(map.H(now));
-        },
-        H(now) {
-            return now.getHours();
-        },
-        mm(now) {
-            return padStart(map.m(now));
-        },
-        m(now) {
-            return now.getMinutes();
-        },
-        ss(now) {
-            return padStart(map.s(now));
-        },
-        s(now) {
-            return now.getSeconds();
-        },
-    };
-    if (!value || !formater)
-        return value;
     const timestamp = isNaN(+value) ? Date.parse(value) : +value;
-    // value = isNaN(+value) ? value : +value;
     if (isNaN(timestamp)) {
         return '-';
-    } else {
-        const now = new Date(timestamp);
-        return formater.replace(new RegExp(Object.keys(map).join('|'), 'g'), (key) => map[key](now));
     }
+    return new Date(timestamp);
+};
+const dateFormat = (value, formater = 'yyyy-MM-dd HH:mm:ss') => {
+    const timestamp = formatDate(value);
+    if (timestamp === '-') {
+        return timestamp;
+    }
+    if (!formater)
+        return value;
+    return format(timestamp, formater);
 };
 
-const ONE_DAY = 24 * 60 * 60 * 1000;
-const timeFormat = (value, type = 'day') => { // type取值day、minute, 默认day
-    if (!value)
-        return '-';
-    value = isNaN(+value) ? Date.parse(value) : +value;
-    if (isNaN(value))
-        return '-';
-    const today = Date.parse(dateFormat(new Date(), 'YYYY-MM-DD') + 'T00:00:00.000+08:00');
-    const tomorrow = today + ONE_DAY;
-    const yesterday = today - ONE_DAY;
-    const twoDaysBefore = yesterday - ONE_DAY;
-    const time = +new Date(value);
-    let day;
-    let minute;
-    const hm = dateFormat(value, 'HH:mm');
-    if (type === 'today') {
-        if (time < tomorrow && time >= today)
-            return minute = '今天 ' + hm;
-        else
-            return dateFormat(value, 'YYYY-MM-DD HH:mm');
+const timeFormat = (value, type = 'day') => { // type 取值 day、minute, 默认day
+    const timestamp = formatDate(value);
+    if (timestamp === '-') {
+        return timestamp;
     }
-    if (time < tomorrow && time >= today)
-        day = minute = '今天 ' + hm;
-    else if (time >= yesterday && time < today) {
+    const today = startOfToday();
+    let [day, hm] = format(timestamp, 'yyyy-MM-dd HH:mm').split(' ');
+    if (isSameDay(timestamp, today)) {
+        return '今天 ' + hm;
+    }
+    if (isYesterday(timestamp)) {
         day = '昨天';
-        minute = '昨天' + ' ' + hm;
-    } else if (time >= twoDaysBefore && time < yesterday) {
+    } else if (isSameDay(addDays(today, -2), timestamp)) {
         day = '前天';
-        minute = '前天' + ' ' + hm;
-    } else {
-        day = dateFormat(value, 'YYYY-MM-DD');
-        minute = dateFormat(value, 'YYYY-MM-DD HH:mm');
     }
-
-    switch (type) {
-        case 'day':
-            return day;
-        case 'minute':
-            return minute;
+    if (type === 'day') {
+        return day;
+    } else {
+        return day + ' ' + hm;
     }
 };
 
