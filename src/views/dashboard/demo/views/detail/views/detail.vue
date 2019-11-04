@@ -47,15 +47,15 @@ export default {
             return [
                 {
                     title: '名称',
-                    content: detail.name,
+                    value: detail.name,
                 },
                 {
                     title: 'ID',
-                    content: detail.id,
+                    value: detail.id,
                 },
                 {
                     title: '时间',
-                    content: detail.time,
+                    value: detail.time,
                 },
             ];
         },

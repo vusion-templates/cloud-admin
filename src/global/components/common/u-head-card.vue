@@ -16,7 +16,7 @@
                 <slot name="info">
                     <ul v-if="infos && infos.length">
                         <li v-for="(info, index) in infos" :key="index">
-                            <label>{{ info.label }}:</label> {{ info.content }}
+                            <label>{{ info.title }}:</label> {{ info.value }}
                         </li>
                     </ul>
                 </slot>
