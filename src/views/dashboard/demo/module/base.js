@@ -1,4 +1,5 @@
 export default {
+    module: 'demo',
     sidebar: {
         title: 'demo',
         children: [
@@ -18,6 +19,19 @@ export default {
                             {
                                 title: 'Tab 列表',
                                 to: '/demo/list/tabs',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                subnav: [
+                    {
+                        title: '路由',
+                        children: [
+                            {
+                                title: '基础路由',
+                                to: '/demo/router/list',
                             },
                         ],
                     },
