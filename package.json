@@ -101,7 +101,7 @@
       ".circleci"
     ],
     "type": "template",
-    "title": "Vusion Lite",
+    "title": "Vusion Pro",
     "category": "basic",
     "base": "vue",
     "ui": "cloud-ui",
