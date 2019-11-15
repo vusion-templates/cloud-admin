@@ -1,7 +1,7 @@
 {
   "name": "cloud-admin",
   "version": "0.1.0",
-  "description": "base on vue cloud-ui.vusion",
+  "description": "base on vue cloud-ui.vusion cloud-admin-template",
   "main": "src/views/dashboard/index.js",
   "scripts": {
     "dev": "npm run update:ui && vue-cli-service serve",
@@ -21,6 +21,14 @@
     "cloud-ui"
   ],
   "author": "zhangsanshi5566@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vusion-templates/cloud-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vusion-templates/cloud-admin/issues"
+  },
+  "homepage": "https://vusion-templates.github.io/cloud-admin",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -86,5 +94,22 @@
       "npm run lint -- --fix",
       "git add"
     ]
+  },
+  "vusion": {
+    "ignore": [
+      "deploy.sh",
+      ".circleci"
+    ],
+    "type": "template",
+    "title": "Vusion Lite",
+    "category": "basic",
+    "base": "vue",
+    "ui": "cloud-ui",
+    "screenshots": [
+      "https://unpkg.com/cloud-admin/screenshots/0.jpg",
+      "https://unpkg.com/cloud-admin/screenshots/1.jpg"
+    ],
+    "team": "",
+    "auth": "public"
   }
 }
