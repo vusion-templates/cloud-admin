@@ -1,6 +1,6 @@
 {
   "name": "cloud-admin",
-  "version": "0.1.2",
+  "version": "0.1.7",
   "description": "base on vue cloud-ui.vusion cloud-admin-template",
   "main": "src/views/dashboard/index.js",
   "scripts": {
