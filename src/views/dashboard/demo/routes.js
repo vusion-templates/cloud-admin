@@ -8,6 +8,9 @@ import Charts from './views/charts';
 export default {
     path: 'demo',
     component: Wrapper,
+    meta: {
+        crumb: 'demo',
+    },
     children: [
         {
             path: '',
