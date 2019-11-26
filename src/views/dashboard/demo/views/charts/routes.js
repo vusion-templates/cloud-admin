@@ -4,6 +4,7 @@ export default {
     component: Wrapper,
     meta: {
         title: '图表',
+        crumb: '图表',
     },
     children: [
         { path: '', redirect: 'echarts' },
@@ -12,6 +13,7 @@ export default {
             component: () => import(/* webpackChunkName: 'demo' */ './views/echarts.vue'),
             meta: {
                 title: 'ECharts',
+                crumb: 'ECharts',
             },
         },
     ],
