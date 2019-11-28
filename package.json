@@ -24,7 +24,7 @@
   "author": "zhangsanshi5566@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vusion-templates/cloud-admin.git"
+    "url": "https://github.com/vusion-templates/cloud-admin.git"
   },
   "bugs": {
     "url": "https://github.com/vusion-templates/cloud-admin/issues"
@@ -111,7 +111,7 @@
       "https://unpkg.com/cloud-admin/screenshots/0.jpg",
       "https://unpkg.com/cloud-admin/screenshots/1.jpg"
     ],
-    "team": "",
+    "team": "necfe",
     "access": "public"
   }
 }
