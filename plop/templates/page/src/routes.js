@@ -10,6 +10,6 @@ export default [
         ],
     },
     { path: '*', beforeEnter(to, from, next) {
-        next('/exception/404'); // 无法匹配的链接跳转到 404
+        next('/overview'); // 无法匹配的链接跳转到 overview
     } },
 ];
