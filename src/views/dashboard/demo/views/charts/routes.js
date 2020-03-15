@@ -1,7 +1,7 @@
-import Wrapper from '@/global/layouts/l-wrapper.vue';
+import { LWrapper } from 'cloud-ui.vusion';
 export default {
     path: 'charts',
-    component: Wrapper,
+    component: LWrapper,
     meta: {
         title: '图表',
         crumb: '图表',

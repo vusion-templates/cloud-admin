@@ -1,7 +1,7 @@
-import Wrapper from '@/global/layouts/l-wrapper.vue';
+import { LWrapper } from 'cloud-ui.vusion';
 export default {
     path: 'editors',
-    component: Wrapper,
+    component: LWrapper,
     meta: {
         title: '编辑器',
         crumb: '编辑器',
