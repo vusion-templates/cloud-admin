@@ -1,8 +1,8 @@
 <template>
     <div>
-        <u-page-sum>
+        <u-page-summary>
             <u-link href="https://github.com/thlorenz/brace">brace 代码编辑器</u-link>
-        </u-page-sum>
+        </u-page-summary>
         <u-loading v-show="!libLoad.status"></u-loading>
         <div v-show="libLoad.status">
             <u-grid-layout gap="normal">

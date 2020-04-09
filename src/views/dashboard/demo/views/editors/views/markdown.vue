@@ -1,10 +1,10 @@
 <template>
     <div>
-        <u-page-sum>
+        <u-page-summary>
             <u-link href="https://github.com/nhn/tui.editor">tui.editor 编辑器</u-link>
             以及
             <u-link href="https://github.com/nhn/toast-ui.vue-editor">toast-ui.vue-editor</u-link>
-        </u-page-sum>
+        </u-page-summary>
         <u-loading v-show="!libLoad.status"></u-loading>
         <div v-show="libLoad.status">
             <u-grid-layout gap="normal">
@@ -29,7 +29,6 @@
     </div>
 </template>
 <script>
-import img from '../assets/images/test.png';
 const libLoad = {
     status: false,
 };
@@ -46,7 +45,6 @@ export default {
     },
     data() {
         const content = [
-            `![image](${img})`,
             '# Heading 1',
             '## Heading 2',
             '### Heading 3',

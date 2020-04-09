@@ -1,8 +1,8 @@
 <template>
     <div>
-        <u-page-sum>
+        <u-page-summary>
             <u-link href="https://github.com/tinymce/tinymce">Tinymce 富文本编辑器</u-link>
-        </u-page-sum>
+        </u-page-summary>
         <u-loading v-show="!libLoad.status"></u-loading>
         <div v-show="libLoad.status">
             <u-tinymce :class="$style.container" v-model="content" v-bind="options"></u-tinymce>
@@ -13,7 +13,6 @@
 const libLoad = {
     status: false,
 };
-import img from '../assets/images/test.png';
 
 export default {
     components: {
@@ -26,10 +25,6 @@ export default {
         return {
             content:
                 `
-  <p style="text-align: center;">
-    <img title="pic" src="${img}" alt="pic" width="200" height="199" />
-  </p>
-
   <h2 style="text-align: center;">Welcome to the TinyMCE editor demo!</h2>
 
   <h2>Got questions or need help?</h2>
