@@ -94,7 +94,8 @@
     "vue-template-compiler": "^2.6.10",
     "vusion-micro-app": "^0.3.1",
     "vusion-utils": "^0.4.5",
-    "webpack-micro": "^0.4.2"
+    "webpack-micro": "^0.4.2",
+    "x-ace-editor.vue": "^0.6.0"
   },
   "husky": {
     "hooks": {
