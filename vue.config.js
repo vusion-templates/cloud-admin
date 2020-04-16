@@ -5,7 +5,9 @@ const pages = require('./pages.json');
 const isDevelopment = process.env.NODE_ENV === 'development';
 const publicPathPrefix = process.env.SITE_TYPE === 'gh-pages' ? `/${pkg.name}` : '/';
 
-const devServer = require('./webpack.dev-server')(publicPathPrefix);
+const port = 8830;
+
+const devServer = require('./webpack.dev-server')(port);
 const proxy = devServer.proxy;
 // vue-cli 对 proxy 不支持 context 的自定义
 delete devServer.proxy;
@@ -37,7 +39,7 @@ let baseConfig = {
     ],
 };
 if (isMicro) {
-    baseConfig = webpackMicro.config(baseConfig, isDevelopment);
+    baseConfig = webpackMicro.config(baseConfig, port, isDevelopment);
 }
 const vueConfig = {
     ...baseConfig,
