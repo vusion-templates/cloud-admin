@@ -36,6 +36,7 @@ let baseConfig = {
         'resize-detector',
         /cloud-ui\.vusion/,
         /vusion-micro-app/,
+        /@cloud-ui/,
     ],
 };
 if (isMicro) {
