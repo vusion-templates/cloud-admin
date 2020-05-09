@@ -28,7 +28,7 @@
                 </template>
             </u-table-view-column>
         </u-table-view>
-        <div class="pager">
+        <div>
             <u-linear-layout direction="vertical">
                 <u-combo-pagination show-total show-sizer show-jumper
                     :page-size-options="limitList" :total-items="total" :page-size.sync="limit"
@@ -46,7 +46,7 @@
 </template>
 <script>
 import page from '@/global/mixins/page/page';
-import noticeService from '../services/index';
+import noticeService from '../service';
 export default {
     mixins: [page],
     data() {

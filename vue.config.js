@@ -25,7 +25,6 @@ if (isMicro) {
 }
 const assetsDir = 'public';
 let baseConfig = {
-    outputDir: path.resolve(__dirname, 'public'),
     publicPath: publicPathPrefix,
     assetsDir,
     productionSourceMap: false,
@@ -47,15 +46,16 @@ const vueConfig = {
     pages,
     chainWebpack(config) {
         webpackHtml.chain(config);
-        webpackOptimization.chain(config, isDevelopment);
+        webpackOptimization.chain(config, isDevelopment, pages);
 
         if (isMicro) {
-            webpackMicro.chain(config);
+            webpackMicro.chain(config, isDevelopment);
         } else {
             webpackDll.chain(config, publicPathPrefix, isDevelopment);
         }
         webpackEditor.chain(config, vueConfig);
         webpackStyle.chain(config);
+        config.output.jsonpFunction('webpackJsonp' + pkg.name);
     },
     devServer,
     pluginOptions: {
