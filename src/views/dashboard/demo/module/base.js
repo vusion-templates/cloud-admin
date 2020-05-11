@@ -67,17 +67,21 @@ export default {
                     },
                 ],
             },
-            {
-                subnav: [{
-                    title: '微前端',
-                    children: [
-                        {
-                            title: 'cloud-admin-lite',
-                            to: '/demo/micro',
-                        },
-                    ],
-                }],
-            },
+            // {
+            //     subnav: [{
+            //         title: '微前端',
+            //         children: [
+            //             {
+            //                 title: 'cloud-admin-1',
+            //                 to: '/demo/micro/cloud-admin-1/demo/form/setting',
+            //             },
+            //             {
+            //                 title: 'cloud-admin-2',
+            //                 to: '/demo/micro/cloud-admin-2/demo/detail/info',
+            //             },
+            //         ],
+            //     }],
+            // },
             {
                 subnav: [
                     {
