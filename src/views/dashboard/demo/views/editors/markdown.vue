@@ -11,13 +11,13 @@
                 <u-grid-layout-row :repeat="1">
                     <u-grid-layout-column :span="1">
                         <u-block>编辑</u-block>
-                        <u-markdown-editor ref="editor" :class="$style.editor" v-model="content" @load="onEditorLoad"></u-markdown-editor>
+                        <u-markdown-editor ref="editor" :class="$style.editor" :initial-value="content" @load="onEditorLoad" @change="change($event)"></u-markdown-editor>
                     </u-grid-layout-column>
                 </u-grid-layout-row>
                 <u-grid-layout-row :repeat="2">
                     <u-grid-layout-column :span="1">
                         <u-block>预览</u-block>
-                        <u-markdown-viewer ref="previewEditor" :class="$style.editor" v-model="content"></u-markdown-viewer>
+                        <u-markdown-viewer ref="previewEditor" :class="$style.editor" :initial-value="content"></u-markdown-viewer>
                     </u-grid-layout-column>
                     <u-grid-layout-column :span="1">
                         <u-block>html</u-block>
@@ -89,7 +89,7 @@ export default {
     },
     methods: {
         change(event) {
-            this.content = event;
+            this.content = this.$refs.editor.editor.getMarkdown();
         },
         getHtml() {
             if (this.$refs.editor)
