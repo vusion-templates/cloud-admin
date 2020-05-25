@@ -1,6 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
+const Utils = require('../utils');
+const { fixSlash } = Utils;
+const layoutChoices = [
+    '左侧主导航',
+    '顶部主导航',
+    '无导航',
+];
 
 module.exports = {
     prompts: [
@@ -19,14 +26,23 @@ module.exports = {
             name: 'title',
             message: '请输入入口页标题（可选，如"用户注册"，作为网页 title 等使用）',
         },
+        {
+            type: 'list',
+            name: 'layoutString',
+            required: true,
+            choices: layoutChoices,
+            default: 0,
+            message: '请选择导航栏模式',
+        },
     ],
     actions(answers) {
         const dest = path.join(__dirname, '../../src/views', answers.name);
         const base = path.join(__dirname, './template');
 
-        let { name, title } = answers;
+        let { name, title, layoutString } = answers;
         title = title || name;
-
+        const layoutIndex = layoutChoices.indexOf(layoutString);
+        answers.layout = Utils.layoutMap[layoutIndex];
         return [
             function (answers) {
                 const pages = require('../../pages.json');
@@ -50,15 +66,27 @@ module.exports = {
             },
             {
                 type: 'addMany',
-                destination: dest,
-                base: path.join(base, 'src'),
-                templateFiles: path.join(base, 'src/**'),
+                destination: fixSlash(dest),
+                base: fixSlash(path.join(base, 'src')),
+                templateFiles: fixSlash(path.join(base, 'src/**')),
             },
             {
                 type: 'add',
                 path: path.join(__dirname, '../../src/pages', name + '.html'),
                 base,
                 templateFile: path.join(base, 'index.html'),
+            },
+            function () {
+                const modulesOrder = Utils.getModuleOrder(dest);
+                if (layoutIndex === 2) {
+                    modulesOrder.sidebar = [];
+                    modulesOrder.navbar = [];
+                }
+                if (layoutIndex === 1) {
+                    modulesOrder.navbar = modulesOrder.sidebar;
+                    modulesOrder.sidebar = [];
+                }
+                Utils.setModuleOrder(dest, modulesOrder);
             },
             [
                 `页面 ${chalk.blue(name)} 已经添加成功。你需要${chalk.green(`重新启动 dev server`)}，然后打开 ${chalk.blue(`/${name}`)} 即可查看。`,

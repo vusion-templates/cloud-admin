@@ -30,10 +30,20 @@ const formatServices = function (services, module, serviceFiles) {
     const service = services[module] = services[module] || {};
     serviceFiles.keys().forEach((key) => {
         const serviceFileContent = serviceFiles(key).default;
-        const fileName = key.replace('./service/', '').replace('.js', '');
-        if (fileName !== 'api') {
-            service[fileName] = serviceFileContent;
+        const moduleServiceName = key.replace('./service/', '').replace('.js', '').split('/');
+        if (moduleServiceName.length > 1) {
+            const last = moduleServiceName.pop();
+            if (last !== 'index') {
+                moduleServiceName.push(last);
+            }
         }
+        const namespace = moduleServiceName.reduce((pre, current) => {
+            if (pre) {
+                current = current.replace(/^[a-z]/, (s) => s.toUpperCase()).replace(/-([a-z])/g, (a, s) => s.toUpperCase());
+            }
+            return pre + current;
+        }, '');
+        service[namespace] = serviceFileContent;
     });
 };
 export default function (importFiles) {
@@ -61,7 +71,6 @@ export default function (importFiles) {
         return moduleRoutes;
     });
     const modules = formatModuleConfig(config);
-    console.log(services);
     return {
         routes,
         modules,
