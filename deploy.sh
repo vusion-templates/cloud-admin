@@ -4,7 +4,7 @@
 set -e
 
 # build
-npm run build:site:micro
+npm run build:site
 
 # navigate into the build output directory
 cd dist/
