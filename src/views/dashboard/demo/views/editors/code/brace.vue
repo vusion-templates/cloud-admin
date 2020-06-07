@@ -33,7 +33,7 @@ const libLoad = {
 };
 export default {
     components: {
-        XAceEditor: () => import(/* webpackChunkName: "brace" */ './components/u-brace').then((component) => {
+        XAceEditor: () => import(/* webpackChunkName: "brace" */ '../components/u-brace').then((component) => {
             libLoad.status = true;
             return component;
         }),

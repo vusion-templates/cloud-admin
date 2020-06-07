@@ -9,10 +9,10 @@ import microMixin from '@/global/mixins/micro';
 export default {
     mixins: [microMixin],
     data() {
+        const slaveName = 'demo.cloud-admin';
         return {
-            slaveName: 'demo.cloud-admin-lite',
-            entries: 'https://vusion-templates.github.io/cloud-admin-lite/public/js/latest.js?t=' + (new Date() - 0),
-            // entries: 'http://localhost:8820/latest.js?t=' + (new Date() - 0),
+            slaveName,
+            entries: `${process.env.VUE_APP_MICRO_SERVER}/${slaveName}-latest.js?t=${(new Date() - 0)}`,
         };
     },
     methods: {

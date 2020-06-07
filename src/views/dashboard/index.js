@@ -1,7 +1,7 @@
 import '@/global/styles/theme.css';
 
 import Vue from 'vue';
-import App from './app.vue';
+import App from './index.vue';
 import { initRouter } from './router';
 import '@/global/page';
 import './library';
@@ -15,6 +15,7 @@ if (window.microApp && window.microApp.isMicro) {
     micro.init(initRouter);
 } else {
     const app = new Vue({
+        name: 'app',
         router: initRouter(),
         ...App,
         // i18n: initI18n(),

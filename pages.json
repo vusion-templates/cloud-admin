@@ -10,6 +10,10 @@
             "chunk-vendors",
             "dashboard"
         ],
-        "chunksSortMode": "manual"
+        "chunksSortMode": "manual",
+        "micro": {
+            "name": "demo.cloud-admin",
+            "entryName": "micro"
+        }
     }
 }
